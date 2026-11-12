@@ -1,0 +1,315 @@
+/* Síndromes musculoesqueléticos. Fuentes: resumen colaborativo de Músculo esquelético (AR, LES, espondiloartritis,
+   artrosis, lumbalgia, escoliosis, fracturas, luxaciones, esguinces) y Bates cap. 16. La monoartritis aguda se agregó del Bates.
+   Las tarjetas usan las fases de la exploración musculoesquelética: inspección, palpación, arcos y maniobras. */
+
+ECOE.register("sindromes", {
+  id: "artritis-reumatoide",
+  sistema: "musculoesqueletico",
+  orden: 1,
+  emoji: "🖐️",
+  titulo: "Artritis reumatoide",
+  resumen: "Poliartritis simétrica de manos (MCF, IFP, muñecas) con rigidez matutina &gt; 1 h; FR y anti-CCP.",
+  definicion: "Enfermedad <b>autoinmune inflamatoria crónica</b> de la membrana sinovial. La sinovial engrosada forma el <b>pannus</b>, que erosiona cartílago y hueso y produce deformidades.",
+  causas: ["Genética: <b>HLA-DRB1</b> (epítopo compartido)", "<b>Tabaquismo</b> (el factor ambiental mejor establecido), sílice, enfermedad periodontal", "Más frecuente en <b>mujeres</b> adultas (3:1)"],
+  sintomas: ["Dolor y aumento de volumen articular <b>simétrico</b>", "<b>Rigidez matutina &gt; 30–60 min</b>", "Pérdida de fuerza de prensión, dificultad para vestirse", "Fatiga, febrícula, hiporexia, pérdida de peso", "Ojo y boca secos (Sjögren secundario)"],
+  inspeccionGeneral: "Manos con aumento de volumen fusiforme de IFP y de MCF; en fases avanzadas, deformidades. Puede haber palidez (anemia de enfermedad crónica).",
+  ippa: [
+    { fase: "I", clave: "Aumento de volumen simétrico de MCF, IFP y muñecas; respeta IFD", detalle: "Tardías: <b>desviación cubital</b>, <b>cuello de cisne</b>, <b>boutonnière</b>, pulgar en Z, atrofia de interóseos. <b>Nódulos reumatoides</b> en la cara extensora del antebrazo y el olécranon." },
+    { fase: "P", clave: "Sinovitis blanda, caliente, dolorosa", detalle: "<b>Compresión de MCF y MTF dolorosa</b> (“squeeze test”). Derrame en rodillas; quiste de Baker." },
+    { fase: "Ar", clave: "Puño incompleto, prensión débil", detalle: "Limitación de la extensión de muñecas y codos." },
+    { fase: "Mn", clave: "Tinel/Phalen positivos", detalle: "Túnel del carpo por sinovitis de la muñeca." },
+  ],
+  pista: "<b>Pequeñas articulaciones, simétrico, &gt; 6 semanas, rigidez &gt; 1 h, respeta IFD</b>. Pregunta por tabaquismo y busca nódulos en los codos.",
+  diferenciales: {
+    cols: ["", "AR", "Artrosis de manos", "Artritis psoriásica"],
+    filas: [
+      ["Articulaciones", "MCF, IFP, muñecas", "IFD, IFP, base del pulgar", "IFD, dactilitis, asimétrica"],
+      ["Consistencia", "Blanda (sinovitis)", "Dura (osteofito)", "Blanda"],
+      ["Rigidez", "&gt; 1 h", "&lt; 30 min", "&gt; 30 min"],
+      ["Extraarticular", "Nódulos, Sjögren, pulmón", "No", "Psoriasis, uñas con hoyuelos"],
+    ],
+  },
+  estudios: ["<b>Anti-CCP</b> (más específico) y <b>factor reumatoide</b>", "VSG y PCR", "Biometría: anemia de enfermedad crónica", "Radiografía de manos y pies (osteopenia yuxtaarticular, erosiones)", "USG o RM: sinovitis temprana", "Criterios ACR/EULAR 2010 (≥ 6/10)"],
+  figs: [{ src: "msk/mcf-palpacion.jpg", pie: "Compresión de MCF" }, { src: "msk/tabla-16-6.jpg", pie: "Bates Tabla 16-6: artritis en las manos" }, { src: "msk/tabla-16-7.jpg", pie: "Bates Tabla 16-7: deformidades de la mano" }],
+  quiz: [
+    { tipo: "mc", p: "Articulaciones que la AR típicamente respeta:", ops: ["MCF", "IFP", "IFD", "Muñecas"], r: 2, exp: "" },
+    { tipo: "mc", p: "Autoanticuerpo más específico de AR:", ops: ["Factor reumatoide", "Anti-CCP", "ANA", "Anti-dsDNA"], r: 1, exp: "" },
+    { tipo: "mc", p: "Factor ambiental mejor establecido:", ops: ["Alcohol", "Tabaquismo", "Obesidad", "Dieta rica en purinas"], r: 1, exp: "" },
+    { tipo: "vf", p: "Un factor reumatoide negativo descarta la AR.", r: false, exp: "Hay AR seronegativa." },
+    { tipo: "mc", p: "Fármaco modificador de primera elección:", ops: ["Prednisona", "Metotrexato", "Ibuprofeno", "Alopurinol"], r: 1, exp: "Los AINE no frenan el daño articular." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "lupus",
+  sistema: "musculoesqueletico",
+  orden: 2,
+  emoji: "🦋",
+  titulo: "Lupus eritematoso sistémico",
+  resumen: "Mujer joven con artritis no erosiva, eritema malar, fotosensibilidad, úlceras orales, serositis y nefritis; ANA y anti-dsDNA.",
+  definicion: "Enfermedad <b>autoinmune multisistémica</b> por pérdida de tolerancia a antígenos nucleares: se forman <b>inmunocomplejos</b> (hipersensibilidad tipo III) que se depositan en riñón, piel, articulaciones y serosas y activan el complemento.",
+  causas: ["Mujeres en edad fértil (9:1)", "Genética", "Luz ultravioleta, infecciones virales, estrés", "Fármacos (hidralazina, procainamida, isoniazida: lupus inducido)"],
+  sintomas: ["Fatiga, fiebre, pérdida de peso", "Artralgias / artritis de manos, muñecas y rodillas", "<b>Eritema malar</b> “en alas de mariposa”, <b>fotosensibilidad</b>", "<b>Úlceras orales</b> o nasales indoloras, alopecia", "Dolor pleurítico (serositis)", "Edema (nefritis lúpica)", "Raynaud, convulsiones, psicosis"],
+  inspeccionGeneral: "Fiebre; puede haber HAS y edema por nefritis.",
+  ippa: [
+    { fase: "I", clave: "Eritema malar que respeta los pliegues nasolabiales", detalle: "Lupus discoide (placas con cicatriz), úlceras en paladar, alopecia, livedo reticularis, Raynaud, edema." },
+    { fase: "P", clave: "Artritis no erosiva", detalle: "Sinovitis de manos y rodillas; deformidades <b>reducibles</b> (artropatía de Jaccoud). Adenopatías." },
+    { fase: "A", clave: "Roce pleural o pericárdico", detalle: "Serositis; derrame pleural." },
+  ],
+  pista: "Mujer joven + <b>artritis + eritema malar + úlceras orales + proteinuria o citopenias</b>. ANA casi siempre positivo; <b>anti-dsDNA y C3/C4 bajos</b> indican actividad renal.",
+  estudios: ["<b>ANA</b> (tamizaje, muy sensible)", "<b>Anti-dsDNA</b> y anti-Sm (específicos)", "<b>Complemento C3 y C4</b> (bajos en actividad)", "BH (anemia, leucopenia, trombocitopenia), Coombs", "EGO y creatinina (proteinuria, cilindros); biopsia renal", "Anticuerpos antifosfolípido"],
+  quiz: [
+    { tipo: "mc", p: "Anticuerpo más sensible para tamizaje de LES:", ops: ["Anti-Sm", "ANA", "Anti-CCP", "FR"], r: 1, exp: "Específicos: anti-dsDNA y anti-Sm." },
+    { tipo: "mc", p: "Mecanismo de daño principal:", ops: ["Hipersensibilidad tipo I", "Depósito de inmunocomplejos (tipo III)", "Células T citotóxicas (tipo IV)", "IgE"], r: 1, exp: "" },
+    { tipo: "vf", p: "La artritis del LES suele ser erosiva y deformante como la AR.", r: false, exp: "Es no erosiva; las deformidades son reducibles (Jaccoud)." },
+    { tipo: "mc", p: "Hallazgo a la auscultación que sugiere serositis:", ops: ["Estertores crepitantes", "Roce pleural o pericárdico", "Sibilancias", "Soplo diastólico"], r: 1, exp: "" },
+    { tipo: "mc", p: "Fármaco que casi todos los pacientes con LES deben recibir:", ops: ["Metotrexato", "Hidroxicloroquina", "Ciclofosfamida", "Rituximab"], r: 1, exp: "" },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "espondiloartritis",
+  sistema: "musculoesqueletico",
+  orden: 3,
+  emoji: "🎋",
+  titulo: "Espondiloartritis",
+  resumen: "Hombre joven con dolor lumbar inflamatorio, sacroilitis, Schober disminuido, entesitis, dactilitis y uveítis; HLA-B27, seronegativa.",
+  definicion: "Grupo de artritis inflamatorias <b>seronegativas</b> (FR y anti-CCP negativos) que afectan el <b>esqueleto axial</b> (sacroiliacas y columna), las <b>entesis</b> y las articulaciones periféricas. Incluye la espondilitis anquilosante, la artritis psoriásica, la reactiva y la asociada a EII.",
+  causas: ["<b>HLA-B27</b> (90–95 % en espondilitis anquilosante)", "Eje IL-23/IL-17 y TNF-α", "Infecciones (artritis reactiva tras diarrea o uretritis), disbiosis", "Sexo masculino, inicio &lt; 45 años; el tabaquismo empeora el pronóstico"],
+  sintomas: ["<b>Dolor lumbar inflamatorio</b> &gt; 3 meses, inicio &lt; 45 años", "Despierta en la 2ª mitad de la noche; mejora con el ejercicio, no con el reposo", "Dolor glúteo alternante", "Rigidez matutina &gt; 30 min", "<b>Buena respuesta a AINE</b>", "Dolor de talón (entesitis), dedo en salchicha, ojo rojo doloroso"],
+  inspeccionGeneral: "Postura: pérdida de la lordosis lumbar e <b>hipercifosis</b> dorsal (“postura del esquiador”) en casos avanzados.",
+  ippa: [
+    { fase: "I", clave: "Pérdida de lordosis lumbar, hipercifosis", detalle: "Dactilitis, psoriasis y uñas con hoyuelos, uveítis anterior." },
+    { fase: "P", clave: "Dolor sacroiliaco y entesitis", detalle: "Dolor a la presión de las sacroiliacas, inserción del Aquiles, fascia plantar, uniones costocondrales." },
+    { fase: "Ar", clave: "Schober &lt; 5 cm", detalle: "Expansión torácica reducida, rotación cervical limitada, distancia occipucio-pared y trago-pared aumentadas." },
+    { fase: "Mn", clave: "FABER/Patrick, Gaenslen y compresión pélvica dolorosos", detalle: "Provocan dolor sacroiliaco." },
+  ],
+  pista: "Joven con <b>lumbalgia que mejora al moverse y empeora en reposo</b> + Schober disminuido + talón doloroso. Pregunta por <b>uveítis, psoriasis, EII y diarrea o uretritis recientes</b>.",
+  diferenciales: {
+    cols: ["", "Lumbalgia inflamatoria (EspA)", "Lumbalgia mecánica"],
+    filas: [
+      ["Edad de inicio", "&lt; 45 años", "Cualquiera"],
+      ["Inicio", "Insidioso", "Agudo, tras esfuerzo"],
+      ["Reposo", "Empeora", "Mejora"],
+      ["Ejercicio", "Mejora", "Empeora"],
+      ["Dolor nocturno", "Sí (2ª mitad de la noche)", "No"],
+    ],
+  },
+  estudios: ["PCR y VSG (pueden ser normales)", "<b>HLA-B27</b> (no es diagnóstico por sí solo)", "FR y anti-CCP <b>negativos</b>", "Radiografía de sacroiliacas (erosiones, esclerosis, anquilosis; “columna en caña de bambú”)", "<b>RM de sacroiliacas</b> (STIR): edema óseo temprano", "Criterios ASAS"],
+  quiz: [
+    { tipo: "mc", p: "Gen más asociado a espondilitis anquilosante:", ops: ["HLA-DR4", "HLA-B27", "HLA-DRB1", "HLA-DQ2"], r: 1, exp: "" },
+    { tipo: "mc", p: "Característica del dolor lumbar inflamatorio:", ops: ["Mejora con el reposo", "Mejora con el ejercicio", "Inicia después de los 60 años", "Aparece tras cargar peso"], r: 1, exp: "" },
+    { tipo: "mc", p: "Manifestación extraarticular más común:", ops: ["Nódulos subcutáneos", "Uveítis anterior aguda", "Eritema malar", "Sjögren"], r: 1, exp: "" },
+    { tipo: "vf", p: "La espondiloartritis es seronegativa (FR y anti-CCP negativos).", r: true, exp: "" },
+    { tipo: "mc", p: "Imagen de elección para sacroilitis temprana:", ops: ["Radiografía", "RM de sacroiliacas", "TC", "Gammagrama"], r: 1, exp: "La radiografía puede ser normal al inicio." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "artrosis",
+  sistema: "musculoesqueletico",
+  orden: 4,
+  emoji: "🦵",
+  titulo: "Artrosis (osteoartritis)",
+  resumen: "Dolor mecánico de rodillas, caderas y manos en &gt; 50 años; rigidez &lt; 30 min, crepitación, Heberden y Bouchard.",
+  definicion: "Degeneración del <b>cartílago articular</b> con falla estructural y funcional de la articulación sinovial: pérdida de cartílago, osteofitos, esclerosis y quistes subcondrales.",
+  causas: ["<b>Primaria</b>: edad, sexo femenino, obesidad, debilidad muscular, alineación", "<b>Secundaria</b>: trauma o fractura intraarticular, artritis inflamatoria previa, necrosis avascular, hemocromatosis, Wilson, Ehlers-Danlos"],
+  sintomas: ["Tríada: <b>dolor, rigidez y limitación</b>", "Dolor que <b>empeora con la actividad y mejora con el reposo</b>", "Rigidez matutina <b>&lt; 30 min</b> y tras inactividad", "Sensación de que la articulación “falla”", "Sin síntomas generales"],
+  inspeccionGeneral: "Frecuentemente obesidad; marcha antiálgica.",
+  ippa: [
+    { fase: "I", clave: "Nódulos de Heberden (IFD) y Bouchard (IFP)", detalle: "Base del pulgar “cuadrada” (rizartrosis), <b>genu varo</b>, atrofia del cuádriceps." },
+    { fase: "P", clave: "Crecimiento óseo duro, crepitación", detalle: "Dolor en la línea articular; derrame leve sin calor importante." },
+    { fase: "Ar", clave: "Limitación dolorosa", detalle: "Cadera: <b>pérdida temprana de la rotación interna</b> con dolor inguinal. Rodilla: flexión limitada." },
+  ],
+  pista: "Mayor de 50 años con dolor <b>mecánico</b>, rigidez breve, crepitación y crecimiento <b>duro</b>: no hay calor ni síntomas generales y los laboratorios son normales.",
+  estudios: ["Diagnóstico clínico", "Radiografía: <b>disminución asimétrica del espacio articular, osteofitos, esclerosis y quistes subcondrales</b>", "Laboratorio normal (solo para descartar otras artritis)", "Líquido sinovial no inflamatorio (&lt; 2 000 leucocitos)"],
+  quiz: [
+    { tipo: "mc", p: "Nódulos de Bouchard se localizan en:", ops: ["IFD", "IFP", "MCF", "Muñeca"], r: 1, exp: "" },
+    { tipo: "mc", p: "Hallazgo radiográfico de artrosis:", ops: ["Osteopenia yuxtaarticular", "Osteofitos", "Erosiones marginales", "Calcificación del cartílago en ‘caña de bambú’"], r: 1, exp: "" },
+    { tipo: "vf", p: "En la artrosis la rigidez matutina suele durar más de una hora.", r: false, exp: "Menos de 30 min." },
+    { tipo: "mc", p: "Primer movimiento que se pierde en la artrosis de cadera:", ops: ["Flexión", "Rotación interna", "Extensión", "Aducción"], r: 1, exp: "" },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "monoartritis",
+  sistema: "musculoesqueletico",
+  orden: 5,
+  emoji: "🔥",
+  titulo: "Monoartritis aguda (gota / artritis séptica)",
+  resumen: "Una articulación roja, caliente y muy dolorosa: hay que puncionarla para buscar cristales e infección.",
+  definicion: "Inflamación aguda de <b>una sola articulación</b>. Las causas principales son <b>cristales</b> (gota, pseudogota) e <b>infección</b> (artritis séptica). La séptica destruye la articulación en días: es una urgencia.",
+  causas: ["<b>Gota</b>: cristales de urato; hombre, alcohol, carnes, diuréticos, ERC", "Pseudogota: pirofosfato de calcio (rodilla, adulto mayor)", "<b>Séptica</b>: <i>S. aureus</i>; gonococo en jóvenes sexualmente activos; prótesis, inmunosupresión, drogas IV", "Traumática (hemartrosis)"],
+  sintomas: ["Dolor intenso de inicio súbito, a menudo nocturno", "No tolera ni la sábana sobre la articulación (gota)", "Fiebre y escalofríos (séptica)", "Impotencia funcional"],
+  inspeccionGeneral: "Fiebre y taquicardia sugieren artritis séptica (aunque la gota también puede dar febrícula).",
+  ippa: [
+    { fase: "I", clave: "Articulación roja, aumentada de volumen", detalle: "<b>Podagra</b> (1ª MTF) en gota; tofos en pabellón auricular, codos y dedos en gota crónica." },
+    { fase: "P", clave: "Calor y dolor exquisito; derrame", detalle: "Peloteo o signo del globo en rodilla." },
+    { fase: "Ar", clave: "Dolor con cualquier movimiento pasivo", detalle: "En la periarticular (bursitis, celulitis) el movimiento pasivo es relativamente indoloro." },
+  ],
+  pista: "Monoartritis aguda = <b>artrocentesis</b>. Líquido con &gt; 50 000 leucocitos y Gram + → séptica. Cristales en aguja con birrefringencia negativa → gota.",
+  diferenciales: {
+    cols: ["", "Gota", "Artritis séptica", "Pseudogota"],
+    filas: [
+      ["Articulación típica", "1ª MTF, tobillo, rodilla", "Rodilla, cadera", "Rodilla, muñeca"],
+      ["Líquido", "Cristales en aguja, birrefringencia <b>negativa</b>", "Purulento, &gt; 50 000 leucocitos, Gram/cultivo +", "Romboides, birrefringencia <b>positiva</b>"],
+      ["Clave", "Alcohol, diuréticos, tofos", "Fiebre, factores de riesgo", "Condrocalcinosis en radiografía"],
+    ],
+  },
+  estudios: ["<b>Artrocentesis</b>: citoquímico, Gram, cultivo y cristales", "Hemocultivos", "BH, PCR, VSG", "Ácido úrico (puede ser normal en la crisis)", "Radiografía"],
+  quiz: [
+    { tipo: "mc", p: "Estudio indispensable en monoartritis aguda:", ops: ["Ácido úrico sérico", "Artrocentesis", "Radiografía", "Factor reumatoide"], r: 1, exp: "" },
+    { tipo: "mc", p: "Cristales en aguja con birrefringencia negativa:", ops: ["Pirofosfato de calcio", "Urato monosódico (gota)", "Oxalato", "Colesterol"], r: 1, exp: "" },
+    { tipo: "vf", p: "Un ácido úrico normal durante la crisis descarta la gota.", r: false, exp: "Puede bajar durante el ataque." },
+    { tipo: "mc", p: "Germen más común de artritis séptica en adultos:", ops: ["Gonococo", "S. aureus", "E. coli", "Pseudomonas"], r: 1, exp: "En jóvenes sexualmente activos considera gonococo." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "lumbalgia",
+  sistema: "musculoesqueletico",
+  orden: 6,
+  emoji: "🧍",
+  titulo: "Lumbalgia y lumbociática",
+  resumen: "Dolor entre las costillas y los pliegues glúteos; mecánica (la mayoría) o con irradiación radicular (Lasègue +). Busca banderas rojas.",
+  definicion: "Dolor localizado entre el margen costal inferior y los pliegues glúteos, con o sin irradiación a las piernas. Es un <b>síntoma</b>, no una enfermedad. Aguda &lt; 6 semanas, subaguda hasta 3–6 meses, crónica después.",
+  causas: ["<b>Mecánica</b> (la mayoría): sobrecarga muscular, degeneración discal, <b>hernia de disco</b>, artrosis facetaria, estenosis del canal, espondilolistesis", "<b>No mecánica</b>: espondiloartritis, infección (espondilodiscitis), tumor o metástasis, fractura osteoporótica", "Referida: aneurisma aórtico, cólico renal, pielonefritis, pancreatitis"],
+  sintomas: ["Dolor lumbar que aumenta con el movimiento y mejora con el reposo (mecánica)", "Rigidez y contractura", "<b>Ciática</b>: dolor que baja por detrás del muslo hasta debajo de la rodilla, con parestesias", "Claudicación neurógena: dolor al caminar que cede al sentarse o flexionar (estenosis)", "<b>Banderas rojas</b>: fiebre, pérdida de peso, cáncer, dolor nocturno, déficit progresivo, alteración de esfínteres"],
+  inspeccionGeneral: "Postura antiálgica, lista lateral del tronco, marcha cautelosa.",
+  ippa: [
+    { fase: "I", clave: "Pérdida de la lordosis, lista lateral", detalle: "Contractura paravertebral visible." },
+    { fase: "P", clave: "Contractura paravertebral dolorosa", detalle: "Dolor a la <b>percusión de una apófisis</b> = bandera roja (fractura, infección, tumor). Dolor en el trayecto del ciático." },
+    { fase: "Ar", clave: "Flexión lumbar limitada y dolorosa", detalle: "En la estenosis duele la extensión." },
+    { fase: "Mn", clave: "Lasègue positivo (30–70°)", detalle: "Lasègue cruzado, muy específico de hernia. Valora fuerza, sensibilidad y reflejos L4, L5 y S1, y la sensibilidad perineal." },
+  ],
+  pista: "Primero <b>descarta banderas rojas</b> y la <b>cauda equina</b> (anestesia en silla de montar, retención urinaria). Sin ellas, la lumbalgia aguda no necesita imagen y se trata manteniendo la actividad.",
+  diferenciales: {
+    cols: ["Raíz", "Fuerza", "Reflejo", "Sensibilidad"],
+    filas: [
+      ["L4", "Extensión de rodilla", "Rotuliano ↓", "Cara medial de la pierna"],
+      ["L5", "Dorsiflexión del 1er dedo, marcha en talones", "— (sin reflejo útil)", "Dorso del pie, 1er espacio"],
+      ["S1", "Flexión plantar, marcha en puntas", "Aquíleo ↓", "Borde lateral del pie, planta"],
+    ],
+  },
+  estudios: ["Sin banderas rojas: <b>no se requieren estudios</b>", "<b>RM</b> si hay déficit neurológico, cauda equina, sospecha de infección o tumor, o síntomas persistentes", "Radiografía si se sospecha fractura", "BH, VSG, PCR si se sospecha infección o inflamación"],
+  figs: [{ src: "neuro/lasegue.jpg", pie: "Elevación de la pierna recta (Lasègue)" }, { src: "msk/tabla-16-3.jpg", pie: "Bates Tabla 16-3: dolor lumbar" }, { src: "neuro/dermatomas-posterior.jpg", pie: "Dermatomas posteriores" }],
+  quiz: [
+    { tipo: "mc", p: "Síntoma que obliga a descartar síndrome de cauda equina:", ops: ["Contractura paravertebral", "Anestesia en silla de montar", "Dolor al flexionar", "Rigidez matutina breve"], r: 1, exp: "" },
+    { tipo: "mc", p: "Raíz con debilidad de la dorsiflexión del 1er dedo:", ops: ["L4", "L5", "S1", "S2"], r: 1, exp: "" },
+    { tipo: "vf", p: "La lumbalgia aguda sin banderas rojas requiere RM de rutina.", r: false, exp: "" },
+    { tipo: "mc", p: "Dolor en las piernas al caminar que cede al sentarse o inclinarse hacia adelante:", ops: ["Claudicación vascular", "Estenosis del canal lumbar", "Hernia L4-L5 aguda", "Espondilitis"], r: 1, exp: "Claudicación neurógena." },
+    { tipo: "mc", p: "Reposo recomendado en lumbalgia aguda mecánica:", ops: ["Reposo absoluto 2 semanas", "Mantener la actividad dentro de lo tolerado", "Inmovilización con corsé", "Reposo hasta que no duela"], r: 1, exp: "" },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "escoliosis",
+  sistema: "musculoesqueletico",
+  orden: 7,
+  emoji: "〰️",
+  titulo: "Escoliosis",
+  resumen: "Desviación lateral &gt; 10° (Cobb) con rotación vertebral; asimetría de hombros y talle, giba en la prueba de Adams.",
+  definicion: "Deformidad <b>tridimensional</b> de la columna: desviación lateral en el plano frontal <b>&gt; 10° de Cobb</b> con rotación de los cuerpos vertebrales.",
+  causas: ["<b>Idiopática</b> (80 %): la del adolescente es la más común, progresa en el estirón puberal, más en mujeres", "Congénita (hemivértebras, barras)", "Neuromuscular (parálisis cerebral, Duchenne)", "Sindrómica (Marfan, Ehlers-Danlos, neurofibromatosis)", "Degenerativa del adulto", "Funcional / postural: dismetría de piernas (no estructural)"],
+  sintomas: ["Generalmente <b>asintomática</b> en adolescentes (hallazgo en tamizaje)", "Asimetría del tronco, ropa que queda chueca", "Dolor en adultos o curvas graves", "Disnea en curvas torácicas &gt; 60–70°"],
+  inspeccionGeneral: "Se explora de pie, sin camisa, por detrás.",
+  ippa: [
+    { fase: "I", clave: "Asimetría de hombros, escápulas y triángulos del talle", detalle: "Desnivel pélvico, pliegues asimétricos. Busca manchas café con leche o mechón lumbar." },
+    { fase: "Mn", clave: "Adams: giba costal o lumbar", detalle: "Escoliómetro: rotación del tronco &gt; 5–7° → radiografía. Mide la longitud de las piernas para descartar escoliosis funcional." },
+    { fase: "R", clave: "Exploración neurológica", detalle: "Reflejos abdominales asimétricos, clonus o curva torácica izquierda → RM (Chiari, siringomielia)." },
+  ],
+  pista: "La <b>giba en Adams</b> separa la escoliosis estructural (rotación) de la postural. Una curva que <b>no</b> es típica (dolorosa, torácica izquierda, con signos neurológicos) obliga a buscar una causa con RM.",
+  estudios: ["<b>Telerradiografía de columna completa</b> AP y lateral de pie: <b>ángulo de Cobb</b>", "Signo de Risser (madurez ósea, riesgo de progresión)", "RM ante banderas rojas"],
+  quiz: [
+    { tipo: "mc", p: "Ángulo de Cobb mínimo para diagnosticar escoliosis:", ops: ["5°", "10°", "20°", "45°"], r: 1, exp: "" },
+    { tipo: "mc", p: "Tipo más frecuente:", ops: ["Congénita", "Idiopática del adolescente", "Neuromuscular", "Degenerativa"], r: 1, exp: "" },
+    { tipo: "vf", p: "Una curva que desaparece al flexionar el tronco y se debe a una pierna más corta es una escoliosis funcional.", r: true, exp: "" },
+    { tipo: "mc", p: "Curva típica que NO requiere RM:", ops: ["Torácica izquierda", "Torácica derecha indolora sin signos neurológicos", "Con clonus", "Inicio a los 5 años"], r: 1, exp: "" },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "fractura",
+  sistema: "musculoesqueletico",
+  orden: 8,
+  emoji: "🦴",
+  titulo: "Fractura",
+  resumen: "Dolor localizado, deformidad, impotencia funcional, movilidad anormal y crepitación tras un traumatismo; evalúa siempre el estado neurovascular distal.",
+  definicion: "Pérdida de la continuidad ósea, parcial o total, por una fuerza superior a la resistencia del hueso.",
+  causas: ["Traumatismo directo o indirecto", "Por estrés (microtraumas repetidos: atletas, militares)", "<b>Patológica</b>: hueso debilitado por osteoporosis, tumor, infección", "Clasificación: cerrada vs <b>expuesta</b>; trazo transverso, oblicuo, espiroideo, conminuto"],
+  sintomas: ["Dolor intenso que aumenta al mover o palpar", "<b>Impotencia funcional</b>", "Deformidad (acortamiento, angulación, rotación)", "Edema y equimosis"],
+  inspeccionGeneral: "En fracturas de pelvis o fémur busca <b>choque hipovolémico</b>.",
+  ippa: [
+    { fase: "I", clave: "Deformidad, acortamiento, rotación", detalle: "Herida que comunica con el foco = <b>fractura expuesta</b>. Edema, equimosis." },
+    { fase: "P", clave: "Dolor óseo localizado, movilidad anormal", detalle: "No busques la crepitación a propósito. <b>Pulsos, llenado capilar, sensibilidad y movilidad distal</b> antes y después de inmovilizar." },
+  ],
+  pista: "Explora <b>la articulación de arriba y la de abajo</b> y el <b>estado neurovascular distal</b>. Dolor desproporcionado y dolor al estirar pasivamente los dedos → <b>síndrome compartimental</b>.",
+  estudios: ["<b>Radiografía en 2 proyecciones</b> que incluya las articulaciones proximal y distal", "TC en fracturas intraarticulares, pelvis y columna", "RM o gammagrama para fracturas ocultas o por estrés"],
+  quiz: [
+    { tipo: "mc", p: "Signo temprano del síndrome compartimental:", ops: ["Ausencia de pulso", "Dolor desproporcionado y al estiramiento pasivo", "Palidez", "Parálisis"], r: 1, exp: "La ausencia de pulso es tardía." },
+    { tipo: "mc", p: "Complicación sistémica de fracturas de huesos largos con hipoxemia, confusión y petequias:", ops: ["TEP", "Embolia grasa", "Choque séptico", "Rabdomiólisis"], r: 1, exp: "" },
+    { tipo: "vf", p: "La radiografía de una fractura debe incluir las articulaciones proximal y distal.", r: true, exp: "" },
+    { tipo: "mc", p: "Lesión del nervio radial se asocia a fractura de:", ops: ["Clavícula", "Diáfisis del húmero", "Escafoides", "Cuello femoral"], r: 1, exp: "Mano caída." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "luxacion",
+  sistema: "musculoesqueletico",
+  orden: 9,
+  emoji: "💪",
+  titulo: "Luxación",
+  resumen: "Pérdida de la congruencia articular: deformidad, fijación elástica, “cavidad vacía”; radiografía antes de reducir y valoración neurovascular.",
+  definicion: "Pérdida <b>permanente</b> del contacto entre las superficies articulares; si es parcial se llama <b>subluxación</b>. La más frecuente es la <b>glenohumeral anterior</b>.",
+  causas: ["Trauma directo o indirecto (caída sobre la mano extendida → hombro)", "Convulsiones o descargas eléctricas (hombro posterior)", "Laxitud ligamentaria (Ehlers-Danlos, Marfan)", "Congénita (displasia de cadera)"],
+  sintomas: ["Dolor intenso", "<b>Impotencia funcional absoluta</b>", "Deformidad evidente", "Articulación bloqueada en posición antiálgica"],
+  inspeccionGeneral: "Paciente sosteniendo el brazo afectado con la otra mano (hombro).",
+  ippa: [
+    { fase: "I", clave: "Deformidad: hombro en charretera", detalle: "Acromion prominente, pérdida del contorno del deltoides; brazo en abducción y rotación externa. Cadera posterior: flexión, aducción y rotación interna." },
+    { fase: "P", clave: "Cavidad articular vacía, fijación elástica", detalle: "Cabeza humeral palpable bajo la coracoides. <b>Sensibilidad en el parche del deltoides</b> (nervio axilar), pulsos." },
+    { fase: "Ar", clave: "Movilidad pasiva bloqueada con resistencia elástica", detalle: "" },
+  ],
+  pista: "<b>Radiografía antes de reducir</b> (descarta fractura) y <b>exploración neurovascular antes y después</b>. En el hombro, el nervio axilar; en la cadera, el ciático.",
+  estudios: ["Radiografía en 2 proyecciones antes y después de reducir", "TC en luxaciones complejas (hombro posterior, cadera)", "RM tras la fase aguda (labrum, manguito)"],
+  quiz: [
+    { tipo: "mc", p: "Luxación más frecuente:", ops: ["Codo", "Glenohumeral anterior", "Cadera posterior", "Rodilla"], r: 1, exp: "" },
+    { tipo: "mc", p: "Nervio a explorar en la luxación anterior de hombro:", ops: ["Radial", "Axilar", "Cubital", "Mediano"], r: 1, exp: "Sensibilidad en la cara lateral del hombro." },
+    { tipo: "mc", p: "Signo de la charretera:", ops: ["Luxación anterior de hombro", "Fractura de clavícula", "Rotura del manguito", "Luxación acromioclavicular"], r: 0, exp: "" },
+    { tipo: "vf", p: "Se debe tomar una radiografía antes de intentar reducir una luxación.", r: true, exp: "Para descartar una fractura asociada." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "esguince",
+  sistema: "musculoesqueletico",
+  orden: 10,
+  emoji: "🦶",
+  titulo: "Esguince",
+  resumen: "Lesión ligamentaria por torsión; el más común es el de tobillo por inversión (peroneoastragalino anterior). Grados I–III y reglas de Ottawa.",
+  definicion: "Lesión traumática de uno o varios <b>ligamentos</b> por estiramiento o torsión que supera su elasticidad, desde la distensión hasta la rotura completa.",
+  causas: ["Tobillo: <b>inversión con flexión plantar</b> → <b>peroneoastragalino anterior</b> (70–80 %), luego peroneocalcáneo", "Eversión → deltoideo (con fracturas maleolares)", "Rodilla: colaterales y cruzados", "Predisponen: laxitud, esguinces previos, calzado inadecuado"],
+  sintomas: ["Dolor tras torcedura, a veces con “chasquido”", "Aumento de volumen y equimosis", "Dificultad para apoyar", "Sensación de inestabilidad (grados II–III)"],
+  inspeccionGeneral: "Marcha antiálgica o incapacidad para apoyar.",
+  ippa: [
+    { fase: "I", clave: "Edema y equimosis perimaleolar lateral", detalle: "" },
+    { fase: "P", clave: "Dolor sobre el ligamento peroneoastragalino anterior", detalle: "Palpa el <b>borde posterior de los maléolos</b>, la base del 5º metatarsiano y el escafoides (<b>Ottawa</b>)." },
+    { fase: "Mn", clave: "Cajón anterior del tobillo", detalle: "Desplazamiento anterior del astrágalo → grado III. Inversión forzada (peroneocalcáneo)." },
+  ],
+  pista: "Aplica <b>Ottawa</b>: si no hay dolor óseo en los maléolos, base del 5º MT o escafoides y camina 4 pasos, <b>no pidas radiografía</b>.",
+  diferenciales: {
+    cols: ["Grado", "Lesión", "Clínica"],
+    filas: [
+      ["I", "Distensión, microrrotura", "Dolor y edema leves, estable"],
+      ["II", "Rotura parcial", "Edema, equimosis, cierta inestabilidad"],
+      ["III", "Rotura completa", "Edema extenso, inestabilidad franca, cajón +"],
+    ],
+  },
+  estudios: ["Radiografía solo si Ottawa +", "USG o RM si hay duda de rotura completa o lesión intraarticular"],
+  quiz: [
+    { tipo: "mc", p: "Ligamento más lesionado en el esguince de tobillo:", ops: ["Deltoideo", "Peroneoastragalino anterior", "Peroneocalcáneo", "Peroneoastragalino posterior"], r: 1, exp: "" },
+    { tipo: "mc", p: "Mecanismo típico del esguince lateral:", ops: ["Eversión con dorsiflexión", "Inversión con flexión plantar", "Hiperextensión", "Rotación externa"], r: 1, exp: "" },
+    { tipo: "vf", p: "Un esguince grado III implica rotura completa del ligamento.", r: true, exp: "" },
+    { tipo: "mc", p: "Criterio de Ottawa:", ops: ["Edema perimaleolar", "Incapacidad para dar 4 pasos", "Equimosis", "Dolor en el ligamento"], r: 1, exp: "" },
+    { tipo: "mc", p: "Protocolo moderno de manejo de lesiones de tejidos blandos:", ops: ["RICE", "PEACE &amp; LOVE", "ABCDE", "SAMPLE"], r: 1, exp: "Evita AINE a dosis altas en las primeras 48 h y promueve la carga progresiva." },
+  ],
+});

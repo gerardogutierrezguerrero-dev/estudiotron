@@ -1,0 +1,132 @@
+/* Adaptado del caso clínico de clase (Flores Méndez, López Leyva): obstrucción intestinal por hernia inguinal
+   estrangulada. Los resultados de imagen se redactaron para el ejercicio. */
+ECOE.register("casos", {
+  id: "oclusion-hernia",
+  sistema: "abdomen",
+  orden: 3,
+  titulo: "Dolor y distensión abdominal en cargador de almacén",
+  resumen: "Urgencias: hombre de 58 años con 48 h de dolor cólico, vómito y sin canalizar gases.",
+  dificultad: "Intermedio",
+  fuente: "Adaptado de caso de clase (oclusión intestinal)",
+  paciente: {
+    avatar: "👨",
+    nombre: "J.G.F.O., 58 años",
+    ficha: [["Sexo", "Masculino"], ["Ocupación", "Cargador en un almacén"], ["Escolaridad", "Bachillerato"], ["Origen", "Ciudad de México"], ["IMC", "36.5 kg/m² (obesidad grado II)"]],
+    motivo: "“Me duele mucho la panza, la tengo muy inflada y no he podido ni echar gases.”",
+    escenario: "Servicio de urgencias.",
+  },
+  interrogatorio: [
+    { q: "Padecimiento actual: características del dolor", a: "48 h de <b>dolor abdominal de inicio agudo, tipo cólico</b>, progresivo (EVA 8/10), difuso con predominio en hemiabdomen inferior.", clave: true },
+    { q: "¿Vómito? ¿De qué tipo?", a: "Náusea y vómito, primero de contenido alimentario y después <b>bilioso</b>.", clave: true },
+    { q: "¿Canaliza gases y evacua?", a: "<b>Ausencia total de gases y evacuaciones</b> en las últimas 36 h. Distensión progresiva e incapacitante.", clave: true },
+    { q: "¿Ha notado algún bulto?", a: "Reapareció un <b>abultamiento doloroso en la ingle derecha que ya no se mete al acostarse</b>.", clave: true },
+    { q: "Antecedentes quirúrgicos", a: "Apendicectomía (complicada) hace 20 años, colecistectomía laparoscópica hace 8 años y <b>hernioplastia inguinal derecha con malla hace 5 años</b> por hernia indirecta.", clave: true },
+    { q: "Enfermedades crónicas y fármacos", a: "Obesidad grado II. HAS controlada con losartán." },
+    { q: "Ocupación y esfuerzo físico", a: "Carga objetos pesados todo el día en el almacén.", clave: true },
+    { q: "¿Sangre en heces, pérdida de peso, cambios previos del hábito intestinal?", a: "Niega. Dieta alta en carbohidratos." },
+    { q: "Antecedentes heredofamiliares", a: "Madre de 85 años, hepatitis A en la infancia. Abuelo materno con HAS e insuficiencia renal, finado por TB." },
+  ],
+  signos: [
+    { l: "TA", v: "135/95", estado: "alto" },
+    { l: "FC", v: "112 lpm", estado: "alto" },
+    { l: "FR", v: "22 rpm", estado: "alto" },
+    { l: "Temp", v: "37.8 °C", estado: "alto" },
+    { l: "SpO₂", v: "96 %" },
+  ],
+  signosNota: "Taquicardia y febrícula en un paciente con oclusión: sugieren <b>deshidratación</b> y posible <b>compromiso vascular</b> (estrangulación).",
+  inspeccionGeneral: "Paciente álgico, con mucosas secas, que evita moverse.",
+  exploracion: {
+    regiones: [
+      {
+        id: "abdomen",
+        nombre: "Abdomen",
+        orden: ["I", "A", "Pe", "P"],
+        maniobras: [
+          { n: "Inspección del abdomen", fase: "I", rel: true, r: "Abdomen <b>asimétrico, francamente globoso por distensión severa</b>. <b>Cicatrices quirúrgicas</b> previas (McBurney, puertos laparoscópicos, inguinal derecha)." },
+          { n: "Auscultación de ruidos intestinales", fase: "A", rel: true, r: "Ruidos <b>aumentados en tono y frecuencia, de carácter metálico</b>, alternados con periodos de silencio." },
+          { n: "Auscultación de soplos vasculares", fase: "A", rel: false, r: "Sin soplos." },
+          { n: "Percusión de los 4 cuadrantes", fase: "Pe", rel: true, r: "<b>Timpanismo marcadamente aumentado</b> generalizado." },
+          { n: "Percusión hepática", fase: "Pe", rel: false, r: "Matidez hepática conservada (no hay neumoperitoneo)." },
+          { n: "Palpación superficial y profunda", fase: "P", rel: true, r: "Dolor difuso a la palpación superficial y profunda con <b>defensa muscular voluntaria e involuntaria</b>." },
+          { n: "Signo de Blumberg (rebote)", fase: "P", rel: true, r: "<b>Positivo</b>." },
+          { n: "Signo de Rovsing", fase: "P", rel: false, r: "Positivo (irritación peritoneal difusa; el paciente no tiene apéndice)." },
+          { n: "Signo de Murphy", fase: "P", rel: false, r: "No valorable (colecistectomizado)." },
+        ],
+      },
+      {
+        id: "inguinal",
+        nombre: "Regiones inguinales",
+        maniobras: [
+          { n: "Inspección de ambas ingles", fase: "I", rel: true, r: "En la región inguinal derecha: <b>masa eritematosa, tensa</b>, sobre la cicatriz previa." },
+          { n: "Palpación e intento suave de reducción", fase: "P", rel: true, r: "Masa <b>indurada, muy dolorosa, no reductible</b> con maniobras suaves. Región inguinal izquierda y femoral sin hernias." },
+          { n: "Percusión de la masa", fase: "Pe", rel: false, r: "Matidez sobre la masa." },
+        ],
+      },
+      {
+        id: "rectal",
+        nombre: "Tacto rectal",
+        maniobras: [
+          { n: "Inspección perianal", fase: "I", rel: false, r: "Sin lesiones." },
+          { n: "Tacto rectal", fase: "P", rel: true, r: "Esfínter normotónico, <b>ampolla rectal vacía</b>, sin masas ni fecaloma. Guante sin sangre." },
+        ],
+      },
+      {
+        id: "cardiopulmonar",
+        nombre: "Cardiopulmonar",
+        maniobras: [
+          { n: "Auscultación pulmonar", fase: "A", rel: false, r: "Murmullo vesicular presente, sin agregados; respiración superficial por la distensión." },
+          { n: "Auscultación cardiaca", fase: "A", rel: false, r: "Taquicardia rítmica sin soplos." },
+        ],
+      },
+      {
+        id: "extremidades",
+        nombre: "Piel e hidratación",
+        maniobras: [
+          { n: "Mucosas y signo del pliegue", fase: "I", rel: true, r: "<b>Mucosas secas</b>, pliegue cutáneo lento." },
+          { n: "Llenado capilar", fase: "P", rel: true, r: "2–3 segundos." },
+        ],
+      },
+    ],
+  },
+  sindromes: [
+    { t: "Síndrome de oclusión (obstrucción) intestinal", ok: true, exp: "Dolor cólico, vómito, distensión, no canaliza gases, ruidos metálicos, timpanismo." },
+    { t: "Síndrome de abdomen agudo / irritación peritoneal", ok: true, exp: "Defensa involuntaria y Blumberg positivo." },
+    { t: "Síndrome de estrangulación intestinal", ok: true, exp: "Hernia irreductible, tensa, eritematosa y dolorosa con fiebre y taquicardia." },
+    { t: "Síndrome de deshidratación / desequilibrio hidroelectrolítico", ok: true, exp: "Vómito, mucosas secas, taquicardia." },
+    { t: "Síndrome de impactación fecal", ok: false, exp: "Ampolla rectal vacía, sin fecaloma." },
+    { t: "Síndrome de Ogilvie (pseudo-obstrucción)", ok: false, exp: "Hay una causa mecánica evidente: hernia irreductible." },
+    { t: "Síndrome de hipertensión portal", ok: false, exp: "No hay estigmas hepáticos, ascitis ni esplenomegalia." },
+  ],
+  estudios: [
+    { t: "Biometría hemática", ok: true, resultado: "Leucocitos <b>16,800/µL</b> · neutrófilos 82 % · <b>bandas 6 %</b> · Hb 16.5 g/dL · Hto 49 % (hemoconcentración) · plaquetas 280,000." },
+    { t: "Química sanguínea y electrolitos", ok: true, resultado: "Na <b>130</b> · K <b>3.1</b> · Cl <b>92</b> mEq/L · urea <b>42</b> · creatinina <b>1.7</b> mg/dL · glucosa 95. <br><span class='small muted'>Pérdidas por vómito y tercer espacio: hiponatremia, hipocalemia, hipocloremia y lesión renal prerrenal.</span>" },
+    { t: "Lactato sérico", ok: true, resultado: "<b>3.8 mmol/L</b> (normal 0.7–2.1): hipoperfusión / isquemia intestinal." },
+    { t: "Radiografía de abdomen de pie y decúbito", ok: true, resultado: "Asas de intestino delgado dilatadas con <b>niveles hidroaéreos escalonados</b>; escaso gas en colon. Sin aire libre." },
+    { t: "TC de abdomen y pelvis con contraste IV", ok: true, resultado: "Asa de íleon <b>incarcerada en hernia inguinal derecha</b> con dilatación proximal, engrosamiento y menor realce de la pared del asa herniada y líquido libre en el saco: <b>datos de estrangulación</b>." },
+    { t: "Sonda nasogástrica (descompresión)", ok: true, resultado: "850 mL biliosos en 12 h; después 600 mL de aspecto café oscuro y <b>olor fecaloide</b>." },
+    { t: "Amilasa y lipasa", ok: false, resultado: "Amilasa 110 U/L, lipasa 95 U/L (normales).", exp: "Útiles para descartar pancreatitis, pero no cambian el manejo aquí." },
+    { t: "Colonoscopia", ok: false, exp: "Contraindicada ante obstrucción con datos de estrangulación." },
+  ],
+  diagnostico: [
+    { t: "Obstrucción intestinal por hernia inguinal derecha estrangulada (recidivante) con sufrimiento vascular", ok: true, exp: "Hernia irreductible, tensa y eritematosa + oclusión + irritación peritoneal + leucocitosis con bandas + lactato elevado." },
+    { t: "Obstrucción intestinal por bridas", ok: false, exp: "Tiene cirugías previas, pero la hernia irreductible explica el cuadro y la TC lo confirma." },
+    { t: "Vólvulo de sigmoides", ok: false, exp: "Sería distensión colónica masiva con imagen en “grano de café”." },
+    { t: "Obstrucción por neoplasia de colon", ok: false, exp: "Sin pérdida de peso, sangrado ni cambios previos del hábito; colon sin gas." },
+    { t: "Íleo paralítico", ok: false, exp: "Los ruidos están aumentados y metálicos, no ausentes." },
+  ],
+  cierre: {
+    resumen: "<p>Hombre con <b>obesidad, esfuerzo físico laboral y hernioplastia inguinal derecha previa</b> que presenta la tétrada de oclusión (dolor cólico, vómito, distensión y ausencia de gases/evacuaciones). La exploración ordenada (I → A → Pe → P) muestra distensión, ruidos metálicos, timpanismo e <b>irritación peritoneal</b>, y la revisión de las ingles revela una <b>hernia recidivante irreductible, tensa y eritematosa</b>. Fiebre, taquicardia, leucocitosis con bandas y lactato alto indican <b>estrangulación</b>: el manejo conservador con sonda nasogástrica no es suficiente.</p>",
+    hallazgos: {
+      cols: ["Fase", "Hallazgo", "Qué significa"],
+      filas: [
+        ["Inspección", "Distensión, cicatrices, masa inguinal eritematosa", "Oclusión; posible causa por bridas o hernia"],
+        ["Auscultación", "Ruidos metálicos con periodos de silencio", "Obstrucción mecánica"],
+        ["Percusión", "Timpanismo generalizado", "Gas atrapado"],
+        ["Palpación", "Defensa involuntaria, Blumberg +, hernia irreductible", "Irritación peritoneal por isquemia"],
+        ["Tacto rectal", "Ampolla vacía", "Obstrucción completa, sin fecaloma"],
+      ],
+    },
+    perlas: ["En toda oclusión: <b>explora las regiones herniarias y haz tacto rectal</b>.", "Hernia irreductible + tensa + eritematosa + dolorosa = <b>estrangulada</b> hasta demostrar lo contrario.", "Dolor que pasa de cólico a continuo, fiebre, taquicardia y lactato alto = <b>isquemia</b>: cirugía urgente.", "Corrige el potasio: la hipocalemia perpetúa el íleo."],
+    tratamiento: "<ul><li>Ayuno, <b>sonda nasogástrica</b> a derivación, sonda Foley con diuresis horaria.</li><li><b>Cristaloides</b> isotónicos y corrección de K, Na y Cl.</li><li>Analgesia, antieméticos y <b>antibiótico de amplio espectro</b> (gramnegativos y anaerobios).</li><li><b>Cirugía urgente</b>: reducción, valoración de viabilidad, resección intestinal si hay necrosis y reparación del defecto.</li><li>Prevención: técnica correcta para cargar, control de peso, vigilancia de la región inguinal.</li></ul>",
+  },
+});

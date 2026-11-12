@@ -1,0 +1,127 @@
+/* Adaptado del caso clínico de clase (Aceves, López, Duarte): STDA variceal por cirrosis descompensada. */
+ECOE.register("casos", {
+  id: "stda-variceal",
+  sistema: "abdomen",
+  orden: 4,
+  titulo: "Hematemesis en paciente con hepatopatía",
+  resumen: "Urgencias: hombre de 52 años con vómito de sangre, melena, somnolencia e hipotensión.",
+  dificultad: "Avanzado",
+  fuente: "Adaptado de caso de clase (STDA variceal)",
+  paciente: {
+    avatar: "🧔",
+    nombre: "A.J.P.L., 52 años",
+    ficha: [["Sexo", "Masculino"], ["Ocupación", "Músico"], ["Escolaridad", "Preparatoria"], ["Estado civil", "Soltero"], ["Origen", "Mexicali, B.C."]],
+    motivo: "Lo trae un amigo porque “vomitó sangre varias veces y está muy dormido”.",
+    escenario: "Sala de choque de urgencias. Parte del interrogatorio se obtiene del acompañante.",
+  },
+  interrogatorio: [
+    { q: "Padecimiento actual", a: "24 h de astenia, adinamia y <b>dolor sordo en hipocondrio derecho</b>. En las últimas 12 h, <b>3 episodios de hematemesis</b> de sangre fresca y en “posos de café” (~600 mL) y <b>2 evacuaciones melénicas</b> abundantes y fétidas.", clave: true },
+    { q: "¿Mareo, síncope, confusión?", a: "<b>Mareo al ponerse de pie</b>, sudoración, y desde hace unas horas está <b>desorientado y somnoliento</b>.", clave: true },
+    { q: "Antecedentes personales patológicos", a: "<b>VIH</b> desde hace 8 años (CD4 210, carga viral 35,000; apego irregular al TAR). <b>Hepatitis C</b> hace 6 años sin tratamiento. <b>Cirrosis hepática</b>.", clave: true },
+    { q: "Alcohol, tabaco y drogas", a: "<b>Alcohol: 24 a 48 latas de cerveza por semana durante 30 años.</b> Tabaco 3 cigarrillos/día. <b>Drogas intravenosas</b> durante 10 años.", clave: true },
+    { q: "¿Toma AINEs o anticoagulantes?", a: "Niega." },
+    { q: "Antecedentes heredofamiliares", a: "Padre con insuficiencia renal crónica; abuelo paterno finado por IAM; abuela paterna por complicaciones de DM2." },
+    { q: "¿Endoscopias previas o tratamiento para várices?", a: "Nunca le han hecho endoscopia; seguimiento médico irregular.", clave: true },
+  ],
+  signos: [
+    { l: "TA", v: "85/50", estado: "bajo" },
+    { l: "FC", v: "118 lpm", estado: "alto" },
+    { l: "FR", v: "22 rpm", estado: "alto" },
+    { l: "SpO₂", v: "93 %", estado: "bajo" },
+    { l: "Glasgow", v: "12", estado: "bajo" },
+  ],
+  signosNota: "<b>Hipotensión + taquicardia</b>: índice de choque 118/85 ≈ 1.4 → <b>choque hipovolémico hemorrágico</b>. La prioridad es la reanimación (dos accesos venosos, cristaloides, hemoderivados) mientras exploras.",
+  inspeccionGeneral: "Somnoliento, deshidratado, con <b>palidez intensa</b> de piel y mucosas.",
+  exploracion: {
+    regiones: [
+      {
+        id: "piel",
+        nombre: "Piel y estigmas",
+        maniobras: [
+          { n: "Color de piel y escleras", fase: "I", rel: true, r: "<b>Ictericia</b> de tinte verdínico en escleras y piel; palidez (++/+++)." },
+          { n: "Tórax y manos (estigmas hepáticos)", fase: "I", rel: true, r: "<b>Arañas vasculares</b> en tórax, <b>eritema palmar</b>, <b>ginecomastia</b>." },
+          { n: "Llenado capilar", fase: "P", rel: true, r: "<b>4 segundos</b>; extremidades frías." },
+        ],
+      },
+      {
+        id: "abdomen",
+        nombre: "Abdomen",
+        orden: ["I", "A", "Pe", "P"],
+        maniobras: [
+          { n: "Inspección del abdomen", fase: "I", rel: true, r: "Abdomen distendido, flancos abombados, <b>red venosa colateral periumbilical (caput medusae)</b>." },
+          { n: "Auscultación de ruidos intestinales", fase: "A", rel: false, r: "Ruidos intestinales aumentados (sangre en la luz)." },
+          { n: "Percusión: matidez cambiante", fase: "Pe", rel: true, r: "Matidez en flancos que <b>se desplaza</b> al girar al paciente." },
+          { n: "Percusión esplénica (Castell)", fase: "Pe", rel: false, r: "Matidez en espacio de Traube en inspiración." },
+          { n: "Onda líquida", fase: "P", rel: true, r: "<b>Positiva</b>: ascitis abundante." },
+          { n: "Palpación del bazo", fase: "P", rel: true, r: "<b>Esplenomegalia</b> 4 cm por debajo del reborde costal izquierdo." },
+          { n: "Palpación hepática", fase: "P", rel: true, r: "Borde hepático no palpable; dolor sordo leve en hipocondrio derecho (hígado pequeño, cirrótico)." },
+          { n: "Signo de Blumberg", fase: "P", rel: false, r: "Negativo." },
+        ],
+      },
+      {
+        id: "neuro",
+        nombre: "Neurológico",
+        maniobras: [
+          { n: "Estado de conciencia (Glasgow)", fase: "I", rel: true, r: "<b>Glasgow 12</b> (O3, V4, M5): somnoliento, desorientado." },
+          { n: "Asterixis (extender muñecas)", fase: "I", rel: true, r: "<b>Asterixis bilateral</b>: encefalopatía hepática." },
+        ],
+      },
+      {
+        id: "rectal",
+        nombre: "Tacto rectal",
+        maniobras: [
+          { n: "Tacto rectal", fase: "P", rel: true, r: "Ampolla con <b>melena</b> abundante; sin masas. Hemorroides internas no sangrantes." },
+        ],
+      },
+      {
+        id: "cardiopulmonar",
+        nombre: "Cardiopulmonar",
+        maniobras: [
+          { n: "Auscultación cardiaca", fase: "A", rel: false, r: "Taquicardia rítmica; soplo sistólico eyectivo II/VI (hiperdinámico por anemia)." },
+          { n: "Auscultación pulmonar", fase: "A", rel: false, r: "Murmullo vesicular disminuido en la base derecha (posible hidrotórax hepático)." },
+        ],
+      },
+    ],
+  },
+  sindromes: [
+    { t: "Síndrome de sangrado de tubo digestivo alto agudo", ok: true, exp: "Hematemesis, posos de café y melena." },
+    { t: "Síndrome de choque hipovolémico (hemorrágico)", ok: true, exp: "TA 85/50, FC 118, llenado capilar 4 s, palidez." },
+    { t: "Síndrome de hipertensión portal", ok: true, exp: "Ascitis, esplenomegalia, caput medusae (y várices en la endoscopia)." },
+    { t: "Síndrome de insuficiencia hepatocelular", ok: true, exp: "Ictericia, arañas vasculares, eritema palmar, ginecomastia, coagulopatía, hipoalbuminemia." },
+    { t: "Síndrome confusional agudo / encefalopatía hepática", ok: true, exp: "Desorientación, somnolencia, asterixis (precipitada por el sangrado)." },
+    { t: "Síndrome de abdomen agudo", ok: false, exp: "No hay rigidez ni rebote." },
+    { t: "Síndrome de oclusión intestinal", ok: false, exp: "Evacua (melena) y los ruidos están presentes." },
+  ],
+  estudios: [
+    { t: "Biometría hemática", ok: true, resultado: "Hb <b>7.5 g/dL</b> · Hto 22.5 % · leucocitos 1.7 ×10³ · <b>plaquetas 22 ×10³</b> (hiperesplenismo)." },
+    { t: "Tiempos de coagulación", ok: true, resultado: "TP 19.5 s · <b>INR 1.8</b> · TTPa 35 s · fibrinógeno 220 mg/dL." },
+    { t: "Química sanguínea", ok: true, resultado: "<b>Urea 145 · BUN 65</b> mg/dL · creatinina <b>2.5</b> · Na 132 · K 5.2 · glucosa 90. <br><span class='small muted'>BUN alto por absorción de sangre + lesión renal aguda prerrenal.</span>" },
+    { t: "Perfil hepático", ok: true, resultado: "AST 120 · ALT 50 (AST/ALT &gt; 2: alcohol) · FA 155 · <b>albúmina 2.6</b> · bilirrubina directa 1.8, indirecta 1.1." },
+    { t: "Endoscopia alta (en las primeras 12 h tras estabilizar)", ok: true, resultado: "<b>Várices esofágicas grado III</b> con sangrado activo en napa y signos rojos." },
+    { t: "USG Doppler hepático", ok: true, resultado: "Hígado nodular y atrófico, <b>vena porta de 15 mm con flujo hepatófugo</b>, esplenomegalia y ascitis abundante." },
+    { t: "Radiografía de abdomen", ok: false, exp: "No aporta al diagnóstico ni al manejo del sangrado." },
+    { t: "Colonoscopia", ok: false, exp: "La melena con hematemesis indica origen alto." },
+  ],
+  diagnostico: [
+    { t: "STDA variceal por hipertensión portal secundaria a cirrosis descompensada (alcohol + VHC), con choque hipovolémico y encefalopatía hepática", ok: true, exp: "Integra el sangrado, la hipertensión portal, la insuficiencia hepatocelular y las complicaciones." },
+    { t: "STDA por úlcera péptica", ok: false, exp: "No usa AINEs y tiene datos floridos de hipertensión portal; la endoscopia muestra várices." },
+    { t: "Síndrome de Mallory-Weiss", ok: false, exp: "Desgarro por vómito; no explica ascitis, esplenomegalia ni colaterales." },
+    { t: "Cáncer gástrico", ok: false, exp: "Sin datos sugestivos y la endoscopia muestra várices." },
+  ],
+  cierre: {
+    resumen: "<p>Hombre con <b>consumo intenso de alcohol, hepatitis C y VIH</b> que presenta <b>STDA masivo</b> (hematemesis y melena) con <b>choque hipovolémico</b>. La exploración muestra los dos grandes síndromes de la cirrosis: <b>hipertensión portal</b> (ascitis, esplenomegalia, caput medusae) e <b>insuficiencia hepatocelular</b> (ictericia, arañas vasculares, eritema palmar, ginecomastia, asterixis). Child-Pugh C. La endoscopia confirma várices esofágicas grado III sangrando.</p>",
+    hallazgos: {
+      cols: ["Región", "Hallazgo", "Qué significa"],
+      filas: [
+        ["Signos vitales", "TA 85/50, FC 118, llenado 4 s", "Choque hipovolémico"],
+        ["Piel", "Ictericia, arañas, eritema palmar, ginecomastia", "Insuficiencia hepatocelular"],
+        ["Abdomen", "Caput medusae, matidez cambiante, onda líquida", "Hipertensión portal con ascitis"],
+        ["Abdomen", "Esplenomegalia 4 cm", "Hipertensión portal"],
+        ["Neurológico", "Glasgow 12, asterixis", "Encefalopatía hepática"],
+        ["Tacto rectal", "Melena", "Sangrado alto"],
+      ],
+    },
+    perlas: ["En hematemesis, <b>primero la hemodinamia</b>: índice de choque &gt; 1 = choque.", "Los estigmas hepáticos te dicen “várices” antes de la endoscopia.", "El sangrado digestivo es el precipitante clásico de la encefalopatía hepática.", "Todo cirrótico con sangrado necesita <b>antibiótico profiláctico</b> (ceftriaxona)."],
+    tratamiento: "<ul><li>Reanimación: dos accesos venosos, cristaloides, <b>transfusión restrictiva</b> (meta Hb 7–8), proteger vía aérea si Glasgow bajo.</li><li><b>Terlipresina</b> (u octreótido) para reducir la presión portal + IBP.</li><li><b>Ceftriaxona</b> 1 g IV/24 h por 5–7 días.</li><li><b>Ligadura endoscópica</b> con bandas en &lt; 12 h.</li><li>Encefalopatía: <b>lactulosa</b> ± rifaximina.</li><li>Después: betabloqueador no selectivo (profilaxis secundaria), abstinencia de alcohol, tratamiento de VHC y apego al TAR, vacunación.</li></ul>",
+  },
+});

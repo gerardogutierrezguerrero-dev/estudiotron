@@ -1,0 +1,107 @@
+/* Caso de práctica elaborado para Estudiotron (no proviene de las presentaciones de clase). */
+ECOE.register("casos", {
+  id: "embarazo-ectopico",
+  sistema: "genitales-femeninos",
+  orden: 15,
+  titulo: "Dolor pélvico y sangrado con retraso menstrual",
+  resumen: "Urgencias: mujer de 27 años con dolor en el bajo vientre izquierdo desde hace 6 horas y manchado vaginal; su regla lleva 7 semanas de atraso.",
+  dificultad: "Intermedio",
+  fuente: "Caso de práctica (elaborado)",
+  paciente: {
+    avatar: "👩",
+    nombre: "K.M.O., 27 años",
+    ficha: [["Sexo", "Femenino"], ["Ocupación", "Estilista"], ["Escolaridad", "Preparatoria"], ["Estado civil", "Soltera"]],
+    motivo: "“Me duele mucho abajo del lado izquierdo y estoy manchando; me sentí mareada en el baño.”",
+    escenario: "Urgencias, madrugada.",
+  },
+  interrogatorio: [
+    { q: "Padecimiento actual", a: "Dolor en <b>fosa iliaca izquierda</b> de 6 h, que empezó tipo cólico y ahora es constante e intenso; <b>sangrado vaginal escaso</b> oscuro. Se mareó al levantarse.", clave: true },
+    { q: "Fecha de última menstruación", a: "Hace <b>7 semanas</b>; ciclos regulares de 28 días.", clave: true },
+    { q: "¿Dolor en el hombro?", a: "Sí, le molesta el <b>hombro izquierdo</b> desde hace 1 hora.", clave: true },
+    { q: "Antecedentes ginecológicos", a: "<b>EPI</b> tratada hace 3 años. Sin método anticonceptivo. G0.", clave: true },
+    { q: "¿Fiebre, diarrea, síntomas urinarios?", a: "Niega." },
+    { q: "¿Náusea o síntomas de embarazo?", a: "Náusea matutina leve y mamas sensibles." },
+  ],
+  signos: [
+    { l: "TA", v: "92/58", estado: "bajo" },
+    { l: "FC", v: "118 lpm", estado: "alto" },
+    { l: "FR", v: "22 rpm", estado: "alto" },
+    { l: "Temp", v: "36.4 °C" },
+    { l: "SpO₂", v: "98 %" },
+  ],
+  signosNota: "Taquicardia con hipotensión: <b>choque hemorrágico</b> incipiente (índice de choque 1.3). Dos vías IV y muestras <b>antes</b> de seguir.",
+  inspeccionGeneral: "Pálida, diaforética, inquieta; se queda quieta por el dolor.",
+  exploracion: {
+    regiones: [
+      {
+        id: "abdomen",
+        nombre: "Abdomen",
+        orden: ["I", "A", "Pe", "P"],
+        maniobras: [
+          { n: "Inspección", fase: "I", rel: true, r: "Abdomen plano, sin cicatrices; respira superficial." },
+          { n: "Auscultación", fase: "A", rel: false, r: "Peristalsis disminuida." },
+          { n: "Percusión", fase: "Pe", rel: true, r: "<b>Matidez en flancos</b> (líquido libre)." },
+          { n: "Palpación superficial y profunda", fase: "P", rel: true, r: "<b>Dolor intenso en hipogastrio y FII</b> con resistencia muscular." },
+          { n: "Rebote (Blumberg)", fase: "P", rel: true, r: "<b>Positivo</b>: irritación peritoneal." },
+        ],
+      },
+      {
+        id: "especulo",
+        nombre: "Espéculo",
+        maniobras: [
+          { n: "Genitales externos", fase: "I", rel: false, r: "Sin lesiones; restos de sangre oscura." },
+          { n: "Cérvix con espéculo", fase: "I", rel: true, r: "Orificio cerrado, <b>sangrado escaso oscuro</b> que sale del orificio; sin tejido." },
+        ],
+      },
+      {
+        id: "bimanual",
+        nombre: "Exploración bimanual",
+        maniobras: [
+          { n: "Movilización cervical", fase: "P", rel: true, r: "<b>Muy dolorosa</b>." },
+          { n: "Útero", fase: "P", rel: true, r: "Ligeramente aumentado y blando, <b>menor de lo esperado</b> para 7 semanas." },
+          { n: "Anexo izquierdo", fase: "P", rel: true, r: "<b>Masa anexial dolorosa</b> de ~4 cm." },
+          { n: "Anexo derecho", fase: "P", rel: false, r: "Sin masas." },
+          { n: "Fondo de saco posterior", fase: "P", rel: true, r: "<b>Abombado y exquisitamente doloroso</b> (“grito de Douglas”)." },
+        ],
+      },
+    ],
+  },
+  sindromes: [
+    { t: "Síndrome de abdomen agudo con irritación peritoneal", ok: true, exp: "Rebote positivo, resistencia muscular." },
+    { t: "Síndrome de choque hipovolémico (hemorrágico)", ok: true, exp: "TA 92/58, FC 118, palidez, diaforesis." },
+    { t: "Síndrome de masa anexial dolorosa", ok: true, exp: "Masa de 4 cm en anexo izquierdo." },
+    { t: "Hemoperitoneo", ok: true, exp: "Matidez en flancos, dolor en hombro, fondo de saco abombado." },
+    { t: "Síndrome febril / EPI", ok: false, exp: "Afebril, sin secreción purulenta; el antecedente de EPI es un factor de riesgo del ectópico." },
+    { t: "Síndrome urinario", ok: false, exp: "Sin síntomas urinarios." },
+  ],
+  estudios: [
+    { t: "β-hCG cuantitativa", ok: true, resultado: "<b>3 400 mUI/mL</b>." },
+    { t: "USG transvaginal", ok: true, resultado: "<b>Útero vacío</b>; masa anexial izquierda heterogénea de 4 cm; <b>abundante líquido libre</b> en fondo de saco y Morrison." },
+    { t: "BH, grupo sanguíneo y Rh, pruebas cruzadas", ok: true, resultado: "Hb <b>8.9 g/dL</b> · O Rh <b>negativo</b>." },
+    { t: "Tiempos de coagulación", ok: true, resultado: "Normales." },
+    { t: "TC de abdomen", ok: false, exp: "Retrasa la cirugía en una paciente inestable; el USG basta." },
+    { t: "Esperar una segunda β-hCG en 48 h", ok: false, exp: "Solo en pacientes estables sin diagnóstico claro." },
+  ],
+  diagnostico: [
+    { t: "Embarazo ectópico tubario izquierdo roto con hemoperitoneo y choque hemorrágico", ok: true, exp: "β-hCG positiva con útero vacío, masa anexial, líquido libre e inestabilidad." },
+    { t: "Aborto incompleto", ok: false, exp: "El útero está vacío, el orificio cerrado y hay hemoperitoneo." },
+    { t: "Quiste de cuerpo lúteo roto", ok: false, exp: "Puede dar hemoperitoneo, pero no explica la β-hCG con útero vacío." },
+    { t: "Torsión ovárica", ok: false, exp: "No explica el hemoperitoneo ni la β-hCG positiva." },
+    { t: "Apendicitis", ok: false, exp: "El dolor es izquierdo, hay β-hCG positiva y hemoperitoneo." },
+  ],
+  cierre: {
+    resumen: "<p>Mujer en edad reproductiva, con <b>antecedente de EPI</b>, amenorrea de 7 semanas, dolor pélvico y sangrado escaso: la tríada del <b>embarazo ectópico</b>. El dolor en el hombro, la matidez en flancos, el <b>fondo de saco abombado</b> y la inestabilidad hemodinámica indican <b>rotura con hemoperitoneo</b>. β-hCG positiva con útero vacío confirma. Es una urgencia quirúrgica.</p>",
+    hallazgos: {
+      cols: ["Exploración", "Hallazgo", "Qué significa"],
+      filas: [
+        ["Signos vitales", "Taquicardia, hipotensión", "Choque hemorrágico"],
+        ["Abdomen", "Rebote +, matidez en flancos", "Hemoperitoneo"],
+        ["Bimanual", "Movilización cervical dolorosa, masa anexial", "Ectópico tubario"],
+        ["Fondo de saco", "Abombado, muy doloroso", "Sangre en Douglas"],
+        ["Hombro", "Dolor referido", "Irritación diafragmática"],
+      ],
+    },
+    perlas: ["<b>Prueba de embarazo</b> en toda mujer en edad reproductiva con dolor abdominal.", "Paciente inestable: no esperes estudios largos; reanima y llama a cirugía.", "EPI previa, cirugía tubaria y DIU aumentan el riesgo.", "Rh negativo → <b>inmunoglobulina anti-D</b>."],
+    tratamiento: "<ul><li><b>Reanimación</b>: 2 vías IV de calibre grueso, cristaloides, transfusión.</li><li><b>Laparoscopia o laparotomía urgente</b>: salpingectomía.</li><li><b>Inmunoglobulina anti-D</b> por ser Rh negativo.</li><li>Metotrexato solo en ectópicos no rotos, pacientes estables y β-hCG baja.</li></ul>",
+  },
+});

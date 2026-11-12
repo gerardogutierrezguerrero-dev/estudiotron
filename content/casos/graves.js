@@ -1,0 +1,127 @@
+/* Caso de práctica elaborado para Estudiotron (no proviene de las presentaciones de clase). */
+ECOE.register("casos", {
+  id: "graves",
+  sistema: "endocrino",
+  orden: 8,
+  titulo: "Palpitaciones y pérdida de peso en mujer joven",
+  resumen: "Consulta: mujer de 29 años que bajó 7 kg comiendo más, con palpitaciones, calor y “ojos saltones”.",
+  dificultad: "Básico",
+  fuente: "Caso de práctica (elaborado)",
+  paciente: {
+    avatar: "👩",
+    nombre: "A.P.R., 29 años",
+    ficha: [["Sexo", "Femenino"], ["Ocupación", "Contadora"], ["Escolaridad", "Licenciatura"], ["Estado civil", "Soltera"]],
+    motivo: "“Siento el corazón muy rápido, no aguanto el calor y estoy bajando de peso aunque como más que nunca.”",
+    escenario: "Consulta externa de medicina familiar.",
+  },
+  interrogatorio: [
+    { q: "Padecimiento actual", a: "4 meses con <b>palpitaciones</b>, nerviosismo, insomnio, <b>intolerancia al calor</b> y sudoración. Bajó <b>7 kg</b> con <b>apetito aumentado</b>.", clave: true },
+    { q: "¿Cambios en los ojos o el cuello?", a: "Su familia le dice que tiene “los ojos más abiertos”; siente arenilla y lagrimeo. Nota el cuello “más ancho”.", clave: true },
+    { q: "Hábito intestinal y menstruación", a: "3–4 evacuaciones blandas al día. Ciclos escasos e irregulares.", clave: true },
+    { q: "¿Debilidad?", a: "Le cuesta subir escaleras y levantar los brazos para peinarse.", clave: true },
+    { q: "Antecedentes heredofamiliares", a: "Madre con hipotiroidismo; tía con vitíligo.", clave: true },
+    { q: "Fármacos, yodo, suplementos para bajar de peso", a: "Niega. Fuma 5 cigarrillos al día (factor de riesgo de oftalmopatía)." },
+    { q: "¿Dolor en el cuello, fiebre o infección reciente?", a: "Niega (no orienta a tiroiditis subaguda)." },
+    { q: "¿Embarazo o parto reciente?", a: "Niega; prueba de embarazo negativa." },
+  ],
+  signos: [
+    { l: "TA", v: "142/58", estado: "alto" },
+    { l: "FC", v: "118 lpm", estado: "alto" },
+    { l: "FR", v: "18 rpm" },
+    { l: "Temp", v: "37.4 °C" },
+    { l: "IMC", v: "19.1" },
+  ],
+  signosNota: "Taquicardia y <b>presión de pulso amplia</b> (142 − 58 = 84 mmHg): estado hiperdinámico típico de tirotoxicosis.",
+  inspeccionGeneral: "Delgada, inquieta, habla rápido, mirada fija.",
+  exploracion: {
+    regiones: [
+      {
+        id: "ojos",
+        nombre: "Ojos",
+        maniobras: [
+          { n: "Posición de párpados y globos oculares", fase: "I", rel: true, r: "<b>Retracción palpebral</b> bilateral con esclera visible sobre el iris; <b>exoftalmos</b> leve, edema periorbitario." },
+          { n: "Seguir el dedo hacia abajo (lid lag)", fase: "I", rel: true, r: "<b>Retraso palpebral</b> (el párpado no acompaña al globo)." },
+          { n: "Motilidad ocular", fase: "I", rel: false, r: "Completa, sin diplopía." },
+          { n: "Campos visuales y agudeza", fase: "I", rel: false, r: "Normales (sin compresión del nervio óptico)." },
+        ],
+      },
+      {
+        id: "cuello",
+        nombre: "Cuello / tiroides",
+        maniobras: [
+          { n: "Inspección del cuello al deglutir", fase: "I", rel: true, r: "<b>Aumento de volumen difuso</b> en la cara anterior que asciende con la deglución." },
+          { n: "Palpación de tiroides (abordaje posterior)", fase: "P", rel: true, r: "<b>Bocio difuso</b>, ~2–3 veces lo normal, <b>blando</b>, liso, simétrico, no doloroso, sin nódulos. <b>Frémito</b> leve." },
+          { n: "Ganglios cervicales", fase: "P", rel: false, r: "No palpables." },
+          { n: "Auscultación de la tiroides", fase: "A", rel: true, r: "<b>Soplo</b> sistólico continuo sobre ambos lóbulos (hipervascularidad)." },
+        ],
+      },
+      {
+        id: "cardio",
+        nombre: "Cardiovascular",
+        maniobras: [
+          { n: "Pulso radial", fase: "P", rel: true, r: "Rítmico, 118 lpm, <b>saltón</b>." },
+          { n: "Palpación del precordio", fase: "P", rel: false, r: "Ápex hiperdinámico, no desplazado." },
+          { n: "Auscultación cardiaca", fase: "A", rel: true, r: "Taquicardia rítmica, <b>R1 intenso</b>, soplo sistólico eyectivo II/VI (flujo)." },
+        ],
+      },
+      {
+        id: "piel",
+        nombre: "Piel y manos",
+        maniobras: [
+          { n: "Piel: temperatura y humedad", fase: "I", rel: true, r: "Piel <b>caliente, húmeda</b> y fina; cabello fino." },
+          { n: "Uñas", fase: "I", rel: false, r: "Onicolisis en 4º dedo." },
+          { n: "Manos extendidas (temblor)", fase: "I", rel: true, r: "<b>Temblor fino distal</b> (visible con una hoja sobre los dedos)." },
+          { n: "Región pretibial", fase: "I", rel: true, r: "Sin mixedema pretibial." },
+        ],
+      },
+      {
+        id: "neuromuscular",
+        nombre: "Neuromuscular",
+        maniobras: [
+          { n: "Fuerza proximal (levantarse de la silla)", fase: "Mo", rel: true, r: "Se levanta con dificultad; abducción de hombros 4/5: <b>miopatía proximal</b>." },
+          { n: "Reflejos de estiramiento", fase: "R", rel: true, r: "<b>3+ simétricos</b> con relajación rápida." },
+        ],
+      },
+    ],
+  },
+  sindromes: [
+    { t: "Síndrome de tirotoxicosis / hipertiroidismo", ok: true, exp: "Pérdida de peso con hiperfagia, calor, palpitaciones, temblor, piel caliente, hiperreflexia." },
+    { t: "Síndrome de bocio difuso", ok: true, exp: "Bocio difuso blando con soplo." },
+    { t: "Oftalmopatía tiroidea (de Graves)", ok: true, exp: "Exoftalmos y edema periorbitario: específicos de Graves." },
+    { t: "Síndrome miopático proximal", ok: true, exp: "Debilidad para peinarse y subir escaleras." },
+    { t: "Síndrome climatérico", ok: false, exp: "Tiene 29 años; los bochornos y la oligomenorrea los explica la tirotoxicosis." },
+    { t: "Síndrome de ansiedad generalizada", ok: false, exp: "No explica bocio, exoftalmos, soplo ni pérdida de peso con hiperfagia." },
+    { t: "Síndrome de Cushing", ok: false, exp: "Hay pérdida (no ganancia) de peso y no hay estrías ni giba." },
+  ],
+  estudios: [
+    { t: "TSH y T4 libre", ok: true, resultado: "TSH <b>&lt; 0.01</b> mUI/L (0.4–4.0) · T4 libre <b>3.8</b> ng/dL (0.8–1.8) · T3 total ↑." },
+    { t: "Anticuerpos contra el receptor de TSH (TRAb)", ok: true, resultado: "<b>Positivos</b> (12 UI/L)." },
+    { t: "Electrocardiograma", ok: true, resultado: "Taquicardia sinusal a 118 lpm, sin fibrilación auricular." },
+    { t: "USG tiroideo Doppler", ok: true, resultado: "Bocio difuso hipoecoico con <b>vascularidad muy aumentada</b> (“infierno tiroideo”), sin nódulos." },
+    { t: "Gammagrama tiroideo", ok: false, exp: "Con TRAb positivos y clínica típica no es necesario; se reserva para dudas (nódulos, tiroiditis)." },
+    { t: "Biopsia por aspiración con aguja fina", ok: false, exp: "No hay nódulos." },
+  ],
+  diagnostico: [
+    { t: "Enfermedad de Graves con oftalmopatía y bocio difuso", ok: true, exp: "Tirotoxicosis + bocio difuso con soplo + exoftalmos + TRAb positivos." },
+    { t: "Bocio multinodular tóxico", ok: false, exp: "Edad avanzada y bocio nodular; sin oftalmopatía." },
+    { t: "Tiroiditis subaguda", ok: false, exp: "Tiroides dolorosa, fiebre, captación baja." },
+    { t: "Adenoma tóxico", ok: false, exp: "Nódulo único; no da oftalmopatía." },
+    { t: "Trastorno de ansiedad", ok: false, exp: "No explica los hallazgos tiroideos ni el laboratorio." },
+  ],
+  cierre: {
+    resumen: "<p>Mujer joven con antecedentes familiares de autoinmunidad tiroidea y <b>tirotoxicosis</b> clínica (pérdida de peso con hiperfagia, calor, palpitaciones, presión de pulso amplia, temblor fino, piel caliente, hiperreflexia, miopatía proximal). Los hallazgos <b>específicos de Graves</b> son el <b>bocio difuso con soplo</b> y la <b>oftalmopatía</b> (exoftalmos, edema periorbitario). TSH suprimida y TRAb positivos lo confirman.</p>",
+    hallazgos: {
+      cols: ["Región", "Hallazgo", "Qué significa"],
+      filas: [
+        ["Signos vitales", "FC 118, TA 142/58", "Estado hiperdinámico"],
+        ["Ojos", "Retracción palpebral, lid lag", "Exceso adrenérgico (cualquier tirotoxicosis)"],
+        ["Ojos", "Exoftalmos, edema periorbitario", "Oftalmopatía: específica de Graves"],
+        ["Tiroides", "Bocio difuso blando con soplo", "Graves (hipervascularidad)"],
+        ["Piel / manos", "Caliente, húmeda, temblor fino", "Hipermetabolismo"],
+        ["Neuromuscular", "Debilidad proximal, reflejos 3+", "Miopatía tirotóxica"],
+      ],
+    },
+    perlas: ["Separa los signos de <b>cualquier tirotoxicosis</b> (taquicardia, temblor, lid lag) de los <b>específicos de Graves</b> (exoftalmos, mixedema pretibial, soplo tiroideo).", "Siempre <b>ausculta</b> un bocio.", "El tabaquismo empeora la oftalmopatía: aconseja dejarlo.", "Busca <b>fibrilación auricular</b> en todo paciente con hipertiroidismo."],
+    tratamiento: "<ul><li><b>Betabloqueador</b> (propranolol) para síntomas adrenérgicos.</li><li><b>Antitiroideos</b>: metimazol (propiltiouracilo en el primer trimestre del embarazo o crisis tirotóxica). Vigilar agranulocitosis (fiebre, dolor de garganta).</li><li>Definitivo: <b>yodo radiactivo</b> (evitar si la oftalmopatía es activa/moderada-grave) o <b>tiroidectomía</b>.</li><li>Oftalmopatía: lubricantes, selenio en formas leves, valoración por oftalmología; dejar de fumar.</li></ul>",
+  },
+});

@@ -1,0 +1,242 @@
+/* Síndromes pleuropulmonares. Fuentes: Bates cap. 8 (Tabla 8-8) y resumen colaborativo de Aparato respiratorio. */
+
+ECOE.register("sindromes", {
+  id: "condensacion",
+  sistema: "torax",
+  orden: 1,
+  emoji: "🧱",
+  titulo: "Síndrome de condensación pulmonar",
+  resumen: "Alvéolos llenos de exudado: mate, ↑ vibraciones, soplo tubario y crepitantes.",
+  definicion: "El aire alveolar es reemplazado por exudado, líquido, sangre o células; el pulmón se vuelve más denso pero <b>la vía aérea sigue permeable</b>, por eso transmite mejor el sonido. Causa clásica: <b>neumonía bacteriana</b>.",
+  causas: ["Neumonía (bacteriana la más típica; también TB, hongos)", "Edema pulmonar alveolar", "Hemorragia alveolar", "Aspiración", "Infarto pulmonar (TEP)", "Neoplasia"],
+  sintomas: ["Fiebre y escalofríos de inicio agudo", "Tos seca → productiva (mucopurulenta, <b>herrumbrosa</b> en neumococo)", "Dolor pleurítico (“punzada de costado”)", "Disnea según extensión", "Astenia, adinamia, mialgias"],
+  inspeccionGeneral: "Taquipnea (&gt;20 rpm), taquicardia, fiebre, SpO₂ &lt;90 % en casos moderados-graves, aleteo nasal, tiraje.",
+  ippa: [
+    { fase: "I", clave: "↓ Expansión del lado afectado", detalle: "Respiración superficial por dolor pleurítico." },
+    { fase: "P", clave: "↑ Vibraciones vocales", detalle: "El tejido sólido transmite mejor la voz." },
+    { fase: "Pe", clave: "Mate / submate", detalle: "Localizado sobre el lóbulo afectado." },
+    { fase: "A", clave: "Soplo tubario + crepitantes", detalle: "Respiración bronquial donde debería ser vesicular; crepitantes inspiratorios tardíos; broncofonía, egofonía y pectoriloquia áfona." },
+  ],
+  pista: "Es el único síndrome mate en el que <b>todo lo que se transmite aumenta</b> (vibraciones, voz, ruido bronquial). Tráquea central.",
+  diferenciales: {
+    cols: ["", "Condensación", "Derrame", "Atelectasia"],
+    filas: [
+      ["Percusión", "Mate", "Mate a plano", "Mate"],
+      ["Vibraciones", "<span class='up'>↑</span>", "<span class='down'>↓ / abolidas</span>", "<span class='down'>↓ / abolidas</span>"],
+      ["Ruido respiratorio", "Bronquial (soplo tubario)", "↓ / abolido", "↓ / abolido"],
+      ["Tráquea", "Central", "Lado contrario (si es grande)", "Hacia el lado afectado"],
+    ],
+  },
+  estudios: ["Rx de tórax PA y lateral: opacidad lobar/segmentaria con <b>broncograma aéreo</b>", "BH: leucocitosis con desviación a la izquierda; PCR, procalcitonina", "Gasometría arterial si hay dificultad respiratoria", "Gram y cultivo de esputo, hemocultivos, antígenos urinarios"],
+  figs: [{ src: "torax/tabla-8-8a.jpg", pie: "Bates Tabla 8-8: neumonía lobar (consolidación)" }],
+  quiz: [
+    { tipo: "mc", p: "¿Qué ruido respiratorio es característico de la condensación?", ops: ["Vesicular disminuido", "Soplo tubario (respiración bronquial)", "Sibilancias", "Silencio"], r: 1, exp: "El tejido consolidado con bronquio permeable transmite el ruido bronquial." },
+    { tipo: "vf", p: "En la condensación las vibraciones vocales están aumentadas.", r: true, exp: "Es el dato que la distingue de derrame y atelectasia." },
+    { tipo: "mc", p: "Esputo “herrumbroso” orienta a:", ops: ["Asma", "Neumonía neumocócica", "Insuficiencia cardiaca", "Neumotórax"], r: 1, exp: "Por destrucción hemática dentro del alvéolo." },
+    { tipo: "mc", p: "Hallazgo radiológico típico:", ops: ["Hiperclaridad sin trama", "Opacidad con broncograma aéreo", "Línea de Damoiseau", "Diafragmas aplanados"], r: 1, exp: "El aire en los bronquios contrasta con el alvéolo ocupado." },
+    { tipo: "vf", p: "En la condensación la tráquea se desvía hacia el lado afectado.", r: false, exp: "Tráquea central: no hay pérdida ni ganancia de volumen." },
+    { tipo: "mc", p: "Fiebre + tos + soplo tubario + egofonía:", ops: ["Triplica la probabilidad de neumonía", "Descarta neumonía", "Sugiere neumotórax", "Es normal"], r: 0, exp: "Bates: más que triplica la probabilidad de neumonía." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "derrame-pleural",
+  sistema: "torax",
+  orden: 2,
+  emoji: "💧",
+  titulo: "Síndrome de derrame pleural",
+  resumen: "Líquido en la pleura: mate, ↓ vibraciones, ↓ murmullo; tráquea al lado contrario si es grande.",
+  definicion: "Acumulación anormal de líquido entre la pleura visceral y la parietal. El líquido <b>separa el pulmón de la pared</b> y bloquea la transmisión del sonido.",
+  causas: ["<b>Trasudado</b>: insuficiencia cardiaca (la más frecuente), cirrosis, síndrome nefrótico, diálisis peritoneal", "<b>Exudado</b>: neumonía (paraneumónico), cáncer, TEP, tuberculosis, lupus, AR", "Empiema (pus), hemotórax (sangre)"],
+  sintomas: ["Dolor pleurítico punzante que aumenta al inspirar y toser — <b>puede desaparecer conforme crece el derrame</b>", "Disnea según el volumen", "Tos seca", "Fiebre (infección), pérdida de peso (neoplasia), ortopnea (IC)"],
+  inspeccionGeneral: "Taquipnea; en derrames masivos, abombamiento de espacios intercostales.",
+  ippa: [
+    { fase: "I", clave: "↓ Expansión del lado afectado", detalle: "Abombamiento intercostal si es masivo." },
+    { fase: "P", clave: "↓ / abolidas vibraciones", detalle: "Tráquea desviada al lado contrario en derrames masivos." },
+    { fase: "Pe", clave: "Matidez (mate a plano)", detalle: "Línea de matidez que asciende hacia la axila (curva de Damoiseau); no desciende con la inspiración." },
+    { fase: "A", clave: "↓ / abolido murmullo vesicular", detalle: "En el borde superior: egofonía y respiración bronquial suave (pulmón comprimido). ± Frote pleural en etapas iniciales." },
+  ],
+  pista: "Mate + todo disminuido + tráquea <b>empujada al lado contrario</b>. Busca la egofonía justo arriba del nivel del líquido.",
+  secciones: [
+    { tipo: "figuras", titulo: "Ver en el Bates", items: [{ src: "torax/diafragma-elevado.jpg", pie: "Nivel de matidez alto y sin descenso: sugiere derrame pleural" }] },
+  ],
+  diferenciales: {
+    cols: ["Dato", "Trasudado", "Exudado"],
+    filas: [
+      ["Mecanismo", "↑ Presión hidrostática o ↓ oncótica; pleura sana", "↑ Permeabilidad capilar o ↓ drenaje linfático"],
+      ["Causas típicas", "IC, cirrosis, nefrótico", "Neumonía, cáncer, TB, TEP, autoinmunes"],
+      ["Criterios de Light", "Ninguno positivo", "Proteína LP/S &gt; 0.5 · DHL LP/S &gt; 0.6 · DHL LP &gt; 2/3 del límite superior sérico"],
+    ],
+  },
+  estudios: ["Rx de tórax: borramiento del ángulo costofrénico, menisco", "USG pleural (detecta volúmenes pequeños y guía punción)", "Toracocentesis diagnóstica: criterios de Light, citoquímico, Gram, cultivo, citología, ADA"],
+  quiz: [
+    { tipo: "mc", p: "En un derrame masivo la tráquea se desvía:", ops: ["Hacia el derrame", "Al lado contrario", "No se desvía", "Hacia atrás"], r: 1, exp: "El líquido ocupa espacio y empuja el mediastino." },
+    { tipo: "mc", p: "¿Dónde se busca la egofonía en un derrame?", ops: ["En la base", "Por encima del nivel del líquido", "En el lado sano", "En el cuello"], r: 1, exp: "El pulmón comprimido sobre el líquido transmite la voz alterada." },
+    { tipo: "vf", p: "El dolor pleurítico tiende a disminuir conforme aumenta el volumen del derrame.", r: true, exp: "El líquido separa las hojas pleurales y reduce la fricción." },
+    { tipo: "mc", p: "Causa más frecuente de trasudado pleural:", ops: ["Neumonía", "Insuficiencia cardiaca", "Tuberculosis", "Cáncer"], r: 1, exp: "IC congestiva." },
+    { tipo: "vf", p: "Las vibraciones vocales están aumentadas en el derrame pleural.", r: false, exp: "Disminuidas o abolidas." },
+    { tipo: "mc", p: "Un derrame con proteína LP/S de 0.7 es:", ops: ["Trasudado", "Exudado", "Empiema obligatoriamente", "Normal"], r: 1, exp: "Light: &gt;0.5 indica exudado." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "neumotorax",
+  sistema: "torax",
+  orden: 3,
+  emoji: "🎈",
+  titulo: "Síndrome de neumotórax",
+  resumen: "Aire en la pleura: hiperresonancia, ↓ vibraciones y ruidos abolidos de un lado.",
+  definicion: "Entrada de aire al espacio pleural que colapsa parcial o totalmente el pulmón. El aire puede venir de fuera (herida) o de dentro (alvéolos, bulas).",
+  causas: ["<b>Espontáneo primario</b>: varón joven, alto, delgado, fumador; rotura de bulas apicales", "<b>Espontáneo secundario</b>: EPOC (enfisema bulloso), neumonía por <i>P. jirovecii</i>, cáncer; también catamenial", "<b>Traumático</b>: abierto (herida penetrante) o cerrado (contusión)", "<b>Iatrogénico</b>: catéter central, toracocentesis, biopsia, barotrauma"],
+  sintomas: ["Dolor torácico pleurítico <b>súbito</b> en el lado afectado", "Disnea súbita", "Tos seca"],
+  inspeccionGeneral: "Taquicardia, taquipnea, SpO₂ &lt;92 %. Si hay hipotensión, ingurgitación yugular y tráquea desviada → <b>neumotórax a tensión</b> (emergencia: descompresión inmediata).",
+  ippa: [
+    { fase: "I", clave: "↓ Movimientos + abombamiento", detalle: "Del hemitórax afectado." },
+    { fase: "P", clave: "↓ / abolidas vibraciones", detalle: "Tráquea al lado contrario si es a tensión. Posible enfisema subcutáneo." },
+    { fase: "Pe", clave: "Hiperresonancia / timpanismo", detalle: "Unilateral: dato clave que lo separa del derrame." },
+    { fase: "A", clave: "↓ / abolidos ruidos respiratorios", detalle: "En una región o todo el hemitórax según el tamaño." },
+  ],
+  pista: "Es el <b>derrame al revés</b> en la percusión: todo disminuido, pero <b>hiperresonante</b>. Si además hay choque → a tensión.",
+  diferenciales: {
+    cols: ["", "Neumotórax", "Derrame", "Asma/EPOC"],
+    filas: [
+      ["Percusión", "Hiperresonante <b>unilateral</b>", "Mate", "Hiperresonante <b>bilateral</b>"],
+      ["Ruidos", "Abolidos", "Abolidos", "↓ con sibilancias"],
+      ["Inicio", "Súbito", "Progresivo", "Episódico / crónico"],
+    ],
+  },
+  estudios: ["Rx de tórax: línea pleural visceral sin trama pulmonar por fuera", "USG: ausencia de deslizamiento pleural, “signo del código de barras”", "TC en dudas o bulas"],
+  quiz: [
+    { tipo: "mc", p: "Perfil típico de neumotórax espontáneo primario:", ops: ["Mujer de 70 años obesa", "Varón joven alto, delgado y fumador", "Niño con asma", "Adulto con IC"], r: 1, exp: "Rotura de bulas apicales subpleurales." },
+    { tipo: "mc", p: "Percusión del hemitórax afectado:", ops: ["Mate", "Claro pulmonar", "Hiperresonante", "Submate"], r: 2, exp: "Aire libre en la pleura." },
+    { tipo: "vf", p: "Hipotensión + ingurgitación yugular + tráquea desviada sugieren neumotórax a tensión.", r: true, exp: "Choque obstructivo: requiere descompresión inmediata." },
+    { tipo: "mc", p: "En USG pulmonar, el neumotórax muestra:", ops: ["Líneas B", "Ausencia de deslizamiento pleural", "Derrame anecoico", "Consolidación"], r: 1, exp: "Signo del código de barras en modo M." },
+    { tipo: "vf", p: "En el neumotórax las vibraciones vocales están aumentadas.", r: false, exp: "Disminuidas o abolidas." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "atelectasia",
+  sistema: "torax",
+  orden: 4,
+  emoji: "🫗",
+  titulo: "Síndrome de atelectasia",
+  resumen: "Colapso por obstrucción bronquial: mate, todo disminuido y tráquea HACIA el lado afectado.",
+  definicion: "Colapso de alvéolos que quedan sin aire, típicamente porque un <b>tapón</b> (moco, cuerpo extraño, tumor) obstruye el bronquio. El pulmón <b>pierde volumen</b> y jala las estructuras hacia él.",
+  causas: ["Tapón de moco (postoperatorio, encamamiento)", "Cuerpo extraño (niños)", "Tumor endobronquial", "Compresión extrínseca"],
+  sintomas: ["Disnea (según extensión)", "Tos", "A menudo asintomática si es pequeña", "Antecedente quirúrgico o de inmovilidad"],
+  ippa: [
+    { fase: "I", clave: "↓ Expansión; retracción", detalle: "Hemitórax afectado más pequeño, espacios intercostales retraídos." },
+    { fase: "P", clave: "↓ / abolidas vibraciones", detalle: "Tráquea desviada <b>hacia el lado afectado</b>." },
+    { fase: "Pe", clave: "Mate", detalle: "Hemidiafragma elevado." },
+    { fase: "A", clave: "↓ / abolidos ruidos", detalle: "Mientras el tapón persista. Excepción: atelectasia del lóbulo superior derecho (puede transmitir ruidos traqueales)." },
+  ],
+  pista: "Igual que un derrame en la percusión y auscultación, pero la tráquea va <b>hacia</b> el lado enfermo (el pulmón “jala”).",
+  diferenciales: {
+    cols: ["", "Atelectasia", "Derrame", "Condensación"],
+    filas: [
+      ["Volumen del hemitórax", "<span class='down'>↓</span>", "<span class='up'>↑</span> (si es masivo)", "Igual"],
+      ["Tráquea", "Hacia el lado afectado", "Lado contrario", "Central"],
+      ["Vibraciones", "↓", "↓", "↑"],
+    ],
+  },
+  estudios: ["Rx de tórax: opacidad con signos de pérdida de volumen (desplazamiento de cisuras, elevación del hemidiafragma)", "Broncoscopia si se sospecha cuerpo extraño o tumor"],
+  quiz: [
+    { tipo: "mc", p: "¿Hacia dónde se desvía la tráquea en la atelectasia?", ops: ["Hacia el lado afectado", "Al lado contrario", "No se desvía", "Depende de la fiebre"], r: 0, exp: "Pérdida de volumen." },
+    { tipo: "vf", p: "La atelectasia por tapón da vibraciones vocales aumentadas.", r: false, exp: "Disminuidas: el bronquio está obstruido." },
+    { tipo: "mc", p: "Causa típica en el postoperatorio:", ops: ["Tapón de moco", "Neumococo", "Bula apical", "Insuficiencia cardiaca"], r: 0, exp: "Por hipoventilación y retención de secreciones." },
+    { tipo: "mc", p: "El hemidiafragma en la atelectasia está:", ops: ["Descendido", "Elevado", "Normal siempre", "Aplanado"], r: 1, exp: "Pérdida de volumen del lado afectado." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "broncoespasmo",
+  sistema: "torax",
+  orden: 5,
+  emoji: "🌬️",
+  titulo: "Síndrome broncoespástico / obstructivo (asma)",
+  resumen: "Obstrucción difusa de la vía aérea: hiperresonancia, espiración prolongada y sibilancias.",
+  definicion: "Estrechamiento <b>difuso</b> y reversible de la vía aérea por broncoconstricción, edema e hipersecreción de moco. El aire entra pero le cuesta salir → <b>atrapamiento aéreo</b>. Prototipo: <b>asma</b>; también EPOC exacerbado, bronquiolitis, anafilaxia.",
+  causas: ["Asma (atopia, alérgenos: ácaros, epitelio de gato, polen)", "Infecciones virales", "Irritantes, aire frío, ejercicio, AINEs", "EPOC exacerbado", "Anafilaxia"],
+  sintomas: ["Disnea episódica", "Sibilancias", "Opresión torácica", "Tos de predominio nocturno o de madrugada", "Mejoría con broncodilatador (reversibilidad)"],
+  inspeccionGeneral: "Taquipnea, taquicardia, posición sentada inclinada hacia adelante (trípode), habla entrecortada, uso de accesorios, tiraje. Pulso paradójico en crisis graves.",
+  ippa: [
+    { fase: "I", clave: "Tiraje + músculos accesorios", detalle: "Expansión simétrica pero globalmente disminuida; tórax hiperinsuflado." },
+    { fase: "P", clave: "Expansión ↓ bilateral", detalle: "Vibraciones normales o ↓ simétricas." },
+    { fase: "Pe", clave: "Hiperresonancia bilateral", detalle: "Diafragmas descendidos, excursión ↓, puede borrarse la matidez cardiaca." },
+    { fase: "A", clave: "Sibilancias espiratorias + espiración prolongada", detalle: "Polifónicas y difusas. <b>Tórax silencioso</b> = obstrucción gravísima." },
+  ],
+  pista: "Todo es <b>bilateral y simétrico</b>. Si en plena crisis ya no oyes sibilancias, no es mejoría: es <b>tórax silencioso</b>.",
+  secciones: [
+    {
+      tipo: "tabla",
+      titulo: "Gravedad de la crisis asmática",
+      cols: ["Dato", "Leve-moderada", "Grave", "Riesgo vital"],
+      filas: [
+        ["Habla", "Frases", "Palabras", "No puede hablar"],
+        ["Posición", "Prefiere sentarse", "Inclinado hacia adelante", "Somnoliento, confuso"],
+        ["FR", "Aumentada", "&gt; 30 rpm", "Bradipnea / pausas"],
+        ["FC", "100–120", "&gt; 120", "Bradicardia"],
+        ["SpO₂ aire ambiente", "90–95 %", "&lt; 90 %", "&lt; 90 % con cianosis"],
+        ["Auscultación", "Sibilancias espiratorias", "Sibilancias insp. y esp.", "<b>Tórax silencioso</b>"],
+      ],
+      nota: "Adaptado de GINA. Úsala para clasificar al paciente en el caso simulado.",
+    },
+  ],
+  diferenciales: {
+    cols: ["Patología", "Dato clave que la distingue"],
+    filas: [
+      ["EPOC", "Inicio en adulto, tabaquismo intenso, obstrucción poco reversible"],
+      ["“Asma cardiaca” (IC)", "Ortopnea, crepitantes basales, galope (R3)"],
+      ["ERGE", "Tos nocturna con pirosis, sin sibilancias difusas"],
+      ["Disfunción de cuerdas vocales", "<b>Estridor inspiratorio</b>, no responde a inhaladores"],
+      ["Anafilaxia", "Urticaria, angioedema, hipotensión tras un desencadenante"],
+    ],
+  },
+  estudios: ["Espirometría con broncodilatador: VEF1/CVF &lt; 0.7 con reversibilidad (↑ VEF1 ≥ 12 % y 200 mL)", "Gasometría en crisis: alcalosis respiratoria e hipoxemia; <b>PaCO₂ normal o alta = fatiga</b>", "Rx de tórax: hiperinsuflación, diafragmas aplanados (descartar neumotórax/neumonía)", "BH: eosinofilia en fenotipo alérgico"],
+  quiz: [
+    { tipo: "mc", p: "Percusión típica en una crisis asmática:", ops: ["Mate bilateral", "Hiperresonancia bilateral", "Hiperresonancia unilateral", "Normal siempre"], r: 1, exp: "Atrapamiento aéreo difuso." },
+    { tipo: "vf", p: "En una crisis, la desaparición de sibilancias sin mejoría clínica es un dato de gravedad.", r: true, exp: "Tórax silencioso: flujo mínimo." },
+    { tipo: "mc", p: "Un estridor inspiratorio que no responde a broncodilatadores sugiere:", ops: ["Asma", "Disfunción de cuerdas vocales", "EPOC", "Neumonía"], r: 1, exp: "El estridor es inspiratorio y se origina en la vía aérea alta." },
+    { tipo: "mc", p: "En crisis asmática, una PaCO₂ normal o elevada indica:", ops: ["Buena evolución", "Fatiga respiratoria inminente", "Alcalosis", "Error del laboratorio"], r: 1, exp: "Lo esperado es hipocapnia por taquipnea." },
+    { tipo: "mc", p: "Criterio espirométrico de reversibilidad:", ops: ["↑ VEF1 ≥ 12 % y 200 mL", "↓ CVF 5 %", "VEF1/CVF &gt; 0.9", "DLCO baja"], r: 0, exp: "Tras broncodilatador." },
+    { tipo: "vf", p: "La FR &gt; 30 rpm y no poder completar frases indican crisis grave.", r: true, exp: "Criterios de gravedad." },
+  ],
+});
+
+ECOE.register("sindromes", {
+  id: "insuficiencia-respiratoria",
+  sistema: "torax",
+  orden: 6,
+  emoji: "🆘",
+  titulo: "Insuficiencia respiratoria (tipo 1 y 2)",
+  resumen: "Falla del intercambio: hipoxemia (tipo 1) o hipercapnia (tipo 2). Diagnóstico por gasometría.",
+  definicion: "El pulmón no oxigena la sangre, no elimina CO₂, o ambas. <b>Tipo 1 (hipoxémica):</b> PaO₂ &lt; 60 mmHg con PaCO₂ normal o baja. <b>Tipo 2 (hipercápnica):</b> PaCO₂ &gt; 45–50 mmHg, habitualmente con hipoxemia. Es un síndrome de “llegada” de casi todas las patologías de este sistema.",
+  causas: ["Tipo 1: neumonía, edema pulmonar, SDRA, TEP, asma, COVID-19", "Tipo 2: EPOC, asma agotada, enfermedad neuromuscular (ELA, miastenia, Guillain-Barré), opioides/sedantes, trauma de pared torácica"],
+  sintomas: ["Disnea", "Confusión, somnolencia (hipercapnia: también cefalea, asterixis)", "Sudoración", "Ansiedad"],
+  inspeccionGeneral: "Taquipnea o ritmo irregular, cianosis, taquicardia, diaforesis, uso de músculos accesorios, respiración paradójica abdominal (fatiga diafragmática), alteración del estado de conciencia.",
+  ippa: [
+    { fase: "I", clave: "Trabajo respiratorio ↑", detalle: "Tiraje, aleteo nasal, accesorios, cianosis central. Bradipnea si es por depresión del centro respiratorio." },
+    { fase: "P", clave: "Según la causa", detalle: "Busca el síndrome subyacente (↑ vibraciones en condensación, ↓ en derrame…)." },
+    { fase: "Pe", clave: "Según la causa", detalle: "Mate (condensación, derrame) o hiperresonante (EPOC, neumotórax)." },
+    { fase: "A", clave: "Según la causa", detalle: "Crepitantes (edema, neumonía), sibilancias (asma/EPOC), silencio (neumotórax, derrame)." },
+  ],
+  pista: "La insuficiencia respiratoria <b>no se diagnostica con el estetoscopio sino con la gasometría</b>: la exploración te dice la <b>causa</b>.",
+  diferenciales: {
+    cols: ["", "Tipo 1 (hipoxémica)", "Tipo 2 (hipercápnica)"],
+    filas: [
+      ["PaO₂", "&lt; 60 mmHg", "&lt; 60 mmHg (habitual)"],
+      ["PaCO₂", "Normal o baja", "&gt; 45–50 mmHg"],
+      ["Mecanismo", "Alteración V/Q, cortocircuito, difusión", "Hipoventilación alveolar"],
+      ["pH", "Alcalosis respiratoria (taquipnea)", "Acidosis respiratoria"],
+      ["Ejemplos", "Neumonía, edema, SDRA, TEP", "EPOC, neuromuscular, opioides"],
+    ],
+  },
+  estudios: ["Gasometría arterial (PaO₂, PaCO₂, pH, PaO₂/FiO₂)", "Oximetría de pulso", "Rx de tórax para la causa"],
+  quiz: [
+    { tipo: "mc", p: "Insuficiencia respiratoria tipo 1 se define por:", ops: ["PaCO₂ &gt; 50", "PaO₂ &lt; 60 con PaCO₂ normal/baja", "pH &gt; 7.45", "SpO₂ &gt; 95 %"], r: 1, exp: "Hipoxémica." },
+    { tipo: "mc", p: "Causa típica de insuficiencia tipo 2:", ops: ["Neumonía lobar", "Sobredosis de opioides", "Anemia", "Ansiedad"], r: 1, exp: "Hipoventilación por depresión del centro respiratorio." },
+    { tipo: "vf", p: "La asterixis puede aparecer en la hipercapnia.", r: true, exp: "Encefalopatía hipercápnica." },
+    { tipo: "mc", p: "Una PaO₂/FiO₂ de 276 indica:", ops: ["Normal", "Alteración del intercambio (≤ 300)", "Hipercapnia", "Alcalosis metabólica"], r: 1, exp: "&gt; 300 es normal; ≤ 300 indica lesión pulmonar." },
+  ],
+});

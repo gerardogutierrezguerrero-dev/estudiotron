@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estudiotron</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#/">🩺 <span>Estudiotron</span></a>
+    <nav class="topnav" id="topnav">
+      <a href="#/materias" data-sec="materias">Materias</a>
+      <a href="#/semestre" data-sec="semestre">Semestre</a>
+      <a href="#/ecoe" data-sec="ecoe">ECOE</a>
+      <a href="#/steps" data-sec="steps">STEPS</a>
+    </nav>
+    <button class="icon-btn" id="themeBtn" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+  </header>
+
+  <main id="app" class="container"></main>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Cerrar">✕</button>
+    <img alt="">
+    <p class="lightbox-cap"></p>
+  </div>
+
+  <!-- Motor -->
+  <script src="assets/js/core.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/caso.js"></script>
+
+  <!-- Contenido ECOE -->
+  <script src="content/sistemas/torax.js"></script>
+  <script src="content/sistemas/cardiovascular.js"></script>
+  <script src="content/sistemas/abdomen.js"></script>
+  <script src="content/sistemas/genitourinario.js"></script>
+  <script src="content/sistemas/nervioso.js"></script>
+  <script src="content/sistemas/cabeza-cuello.js"></script>
+  <script src="content/sistemas/endocrino.js"></script>
+  <script src="content/sistemas/musculoesqueletico.js"></script>
+  <script src="content/sistemas/piel.js"></script>
+  <script src="content/sistemas/mama.js"></script>
+  <script src="content/sistemas/genitales-femeninos.js"></script>
+  <script src="content/sindromes/respiratorio.js"></script>
+  <script src="content/sindromes/cardiovascular.js"></script>
+  <script src="content/sindromes/digestivo.js"></script>
+  <script src="content/sindromes/genitourinario.js"></script>
+  <script src="content/sindromes/nervioso.js"></script>
+  <script src="content/sindromes/endocrino.js"></script>
+  <script src="content/sindromes/musculoesqueletico.js"></script>
+  <script src="content/sindromes/piel.js"></script>
+  <script src="content/sindromes/mama-gineco.js"></script>
+  <script src="content/casos/crisis-asmatica.js"></script>
+  <script src="content/casos/insuficiencia-cardiaca.js"></script>
+  <script src="content/casos/oclusion-hernia.js"></script>
+  <script src="content/casos/stda-variceal.js"></script>
+  <script src="content/casos/pielonefritis.js"></script>
+  <script src="content/casos/evc-isquemico.js"></script>
+  <script src="content/casos/guillain-barre.js"></script>
+  <script src="content/casos/graves.js"></script>
+  <script src="content/casos/cushing.js"></script>
+  <script src="content/casos/artritis-reumatoide.js"></script>
+  <script src="content/casos/lumbociatica.js"></script>
+  <script src="content/casos/melanoma.js"></script>
+  <script src="content/casos/escabiosis.js"></script>
+  <script src="content/casos/cancer-mama.js"></script>
+  <script src="content/casos/embarazo-ectopico.js"></script>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

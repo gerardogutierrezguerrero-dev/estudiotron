@@ -1,0 +1,137 @@
+/* Adaptado del caso clínico de clase “Integración clínico básico” (Alonso, Mora, Salgado).
+   Se agregó el soplo continuo infraclavicular y los pulsos amplios para que el diagnóstico de CAP
+   pueda integrarse desde la exploración física. */
+ECOE.register("casos", {
+  id: "insuficiencia-cardiaca",
+  sistema: "cardiovascular",
+  orden: 2,
+  titulo: "Disnea de esfuerzo progresiva en mujer de 69 años",
+  resumen: "Consulta externa: paciente con miocardiopatía dilatada que cada vez camina menos. ¿Es solo su miocardiopatía?",
+  dificultad: "Avanzado",
+  fuente: "Adaptado de caso de clase (IC / CAP)",
+  paciente: {
+    avatar: "👵",
+    nombre: "L.G.F., 69 años",
+    ficha: [["Sexo", "Femenino"], ["Ocupación", "Gerente de restaurante"], ["Escolaridad", "Licenciatura"], ["Estado civil", "Viuda"], ["IMC", "25.9 kg/m²"]],
+    motivo: "“Me falta el aire cuando camino rápido o subo una pendiente, y cada vez aguanto menos.”",
+    escenario: "Consulta externa de cardiología, referida por deterioro progresivo de la capacidad física.",
+  },
+  interrogatorio: [
+    { q: "Padecimiento actual", a: "<b>Disnea de esfuerzo progresiva</b>: aparece al caminar de prisa en plano o subir una pendiente ligera. Antes hacía caminata diaria y senderismo; ahora se limita (<b>NYHA II–III</b>).", clave: true },
+    { q: "¿Ortopnea o disnea paroxística nocturna?", a: "Duerme con <b>2 almohadas</b> desde hace meses. Una vez despertó con falta de aire.", clave: true },
+    { q: "¿Edema de piernas?", a: "Discreto edema en tobillos <b>por la tarde</b>.", clave: true },
+    { q: "Antecedentes cardiovasculares", a: "Miocarditis hace 17 años. <b>Miocardiopatía dilatada</b> diagnosticada por resonancia hace 8 años (VI levemente dilatado, <b>FEVI 39 %</b>). HAS.", clave: true },
+    { q: "Otros antecedentes y fármacos", a: "DM2 controlada con dieta (HbA1c 6 %), dislipidemia. Ramipril 10 mg/día, simvastatina 40 mg/día." },
+    { q: "¿Le dijeron alguna vez que tenía un soplo?", a: "“De niña un doctor dijo que tenía un soplo, pero nunca me lo estudiaron.”", clave: true },
+    { q: "¿Dolor torácico opresivo con el esfuerzo?", a: "Niega angina." },
+    { q: "Antecedentes heredofamiliares", a: "Padre con HAS, cardiopatía isquémica y EVC; madre con DM2. Niega cardiopatías congénitas o muerte súbita en la familia." },
+    { q: "Tabaquismo / alcohol", a: "Niega tabaquismo. Alcohol social ocasional." },
+  ],
+  signos: [
+    { l: "TA", v: "135/60", estado: "alto" },
+    { l: "FC", v: "102 lpm", estado: "alto" },
+    { l: "FR", v: "22 rpm", estado: "alto" },
+    { l: "Temp", v: "36.6 °C" },
+    { l: "SpO₂ (aire)", v: "93 %", estado: "bajo" },
+  ],
+  signosNota: "Taquicardia y taquipnea leves con SpO₂ limítrofe. Fíjate en la <b>presión de pulso amplia</b> (135 − 60 = 75 mmHg): sugiere un escape diastólico de la aorta (insuficiencia aórtica, CAP) o estado hiperdinámico.",
+  inspeccionGeneral: "Consciente, orientada, sin disnea en reposo sentada; se fatiga al subirse a la camilla.",
+  exploracion: {
+    regiones: [
+      {
+        id: "cuello",
+        nombre: "Cuello",
+        maniobras: [
+          { n: "PVY a 30–45°", fase: "I", rel: true, r: "PVY a <b>4 cm</b> sobre el ángulo esternal (discretamente elevada)." },
+          { n: "Reflujo hepatoyugular", fase: "P", rel: true, r: "Negativo (la congestión sistémica aún es leve)." },
+          { n: "Pulso carotídeo", fase: "P", rel: true, r: "Ascenso rápido y <b>amplio</b> (saltón)." },
+          { n: "Auscultación carotídea", fase: "A", rel: false, r: "Sin soplos." },
+        ],
+      },
+      {
+        id: "precordio",
+        nombre: "Precordio",
+        maniobras: [
+          { n: "Inspección del precordio", fase: "I", rel: false, r: "Impulso apical visible lateralizado." },
+          { n: "Palpación del ápex", fase: "P", rel: true, r: "Ápex <b>desplazado abajo y a la izquierda</b> (6º EIC, línea axilar anterior), <b>difuso, ~3.5 cm</b>." },
+          { n: "Palpación paraesternal y 2º EIC izquierdo", fase: "P", rel: true, r: "<b>Frémito</b> continuo en la región infraclavicular izquierda; R2 palpable." },
+          { n: "Auscultación foco aórtico", fase: "A", rel: false, r: "R2 presente, sin soplo sistólico eyectivo." },
+          { n: "Auscultación foco pulmonar / infraclavicular izquierdo", fase: "A", rel: true, r: "<b>Soplo continuo “en maquinaria”</b> grado IV/VI, máximo alrededor de R2, en región infraclavicular izquierda. <b>P2 reforzado</b>." },
+          { n: "Auscultación foco tricuspídeo", fase: "A", rel: false, r: "Sin soplos." },
+          { n: "Auscultación foco mitral con campana en decúbito lateral izquierdo", fase: "A", rel: true, r: "<b>R3</b> (ritmo de galope) en el ápex. Soplo holosistólico II/VI irradiado a axila (insuficiencia mitral funcional)." },
+        ],
+      },
+      {
+        id: "pulmones",
+        nombre: "Pulmones",
+        maniobras: [
+          { n: "Inspección y expansión torácica", fase: "I", rel: false, r: "Tórax simétrico, amplexión y amplexación conservadas." },
+          { n: "Percusión", fase: "Pe", rel: false, r: "Claro pulmonar en ambos campos." },
+          { n: "Auscultación pulmonar", fase: "A", rel: true, r: "Murmullo vesicular presente; <b>crepitantes finos bibasales</b> tardíos que no se modifican con la tos." },
+        ],
+      },
+      {
+        id: "abdomen",
+        nombre: "Abdomen",
+        orden: ["I", "A", "Pe", "P"],
+        maniobras: [
+          { n: "Inspección abdominal", fase: "I", rel: false, r: "Plano, sin red venosa." },
+          { n: "Palpación hepática", fase: "P", rel: true, r: "Sin hepatomegalia ni esplenomegalia; no doloroso." },
+          { n: "Matidez cambiante (ascitis)", fase: "Pe", rel: false, r: "Negativa." },
+        ],
+      },
+      {
+        id: "extremidades",
+        nombre: "Extremidades",
+        maniobras: [
+          { n: "Edema con fóvea", fase: "I", rel: true, r: "<b>Edema 1+</b> maleolar bilateral." },
+          { n: "Temperatura y llenado capilar", fase: "P", rel: true, r: "Extremidades <b>frías</b>, llenado capilar de <b>3 s</b> (bajo gasto)." },
+          { n: "Pulsos periféricos", fase: "P", rel: true, r: "Radiales, femorales y pedios presentes, simétricos, <b>amplios</b> (3+)." },
+          { n: "Cianosis diferencial (manos vs pies)", fase: "I", rel: false, r: "No hay cianosis en pies ni manos (no hay inversión del cortocircuito)." },
+        ],
+      },
+    ],
+  },
+  sindromes: [
+    { t: "Síndrome de insuficiencia cardiaca", ok: true, exp: "Disnea de esfuerzo, ortopnea, R3, crepitantes bibasales, ápex desplazado, edema, PVY ↑ (Framingham +)." },
+    { t: "Síndrome de cortocircuito / soplo continuo (cardiopatía congénita)", ok: true, exp: "Soplo continuo en maquinaria + frémito + pulsos saltones + presión de pulso amplia." },
+    { t: "Síndrome de hipertensión pulmonar", ok: true, exp: "P2 reforzado y palpable en un cortocircuito izquierda → derecha de larga evolución." },
+    { t: "Síndrome de bajo gasto", ok: true, exp: "Extremidades frías y llenado capilar de 3 s." },
+    { t: "Síndrome coronario agudo", ok: false, exp: "No hay angina ni dolor; la disnea es crónica y progresiva." },
+    { t: "Síndrome de condensación pulmonar", ok: false, exp: "Sin matidez, sin soplo tubario; crepitantes bilaterales simétricos." },
+    { t: "Síndrome broncoespástico", ok: false, exp: "Sin sibilancias ni hiperresonancia." },
+  ],
+  estudios: [
+    { t: "NT-proBNP", ok: true, resultado: "<b>1,084 ng/L</b> (elevado; &gt; 125 ng/L en ambulatorio)." },
+    { t: "Electrocardiograma", ok: true, resultado: "Taquicardia sinusal 102 lpm, crecimiento de VI con sobrecarga diastólica, crecimiento de AI." },
+    { t: "Ecocardiograma transtorácico", ok: true, resultado: "VI dilatado con <b>FEVI 39 %</b>. <b>Conducto arterioso persistente</b> de 6 mm con flujo continuo aorta → pulmonar (cortocircuito izquierda-derecha). PSAP estimada 48 mmHg. Insuficiencia mitral funcional moderada." },
+    { t: "Radiografía de tórax", ok: true, resultado: "Cardiomegalia (ICT 0.58), arco pulmonar prominente, redistribución de flujo hacia ápices." },
+    { t: "Biometría hemática y química sanguínea", ok: true, resultado: "Hb 13.8 g/dL. Creatinina 1.0 mg/dL, Na 136, K 4.4. Glucosa 108." },
+    { t: "Coronariografía urgente", ok: false, exp: "No hay datos de síndrome coronario agudo." },
+    { t: "Espirometría", ok: false, exp: "Sin datos de neumopatía obstructiva." },
+  ],
+  diagnostico: [
+    { t: "Conducto arterioso persistente con repercusión hemodinámica, complicado con IC con FE reducida", ok: true, exp: "El soplo continuo, los pulsos saltones y la presión de pulso amplia explican la sobrecarga de volumen del VI que agrava su miocardiopatía." },
+    { t: "IC con FE reducida solo por miocardiopatía dilatada", ok: false, exp: "Explica la IC, pero <b>no el soplo continuo ni los pulsos saltones</b>: falta integrar un hallazgo." },
+    { t: "Estenosis aórtica grave", ok: false, exp: "El soplo de EAo es mesosistólico con pulso parvus et tardus, no continuo con pulso saltón." },
+    { t: "Comunicación interventricular", ok: false, exp: "Soplo holosistólico paraesternal, no continuo." },
+    { t: "EPOC con cor pulmonale", ok: false, exp: "Sin tabaquismo, sin hiperresonancia ni sibilancias." },
+  ],
+  cierre: {
+    resumen: "<p>Paciente con <b>miocardiopatía dilatada (FEVI 39 %)</b> e IC en clase NYHA II–III. La exploración confirma la IC (<b>R3, crepitantes bibasales, ápex desplazado, PVY ↑, edema</b>), pero un examinador completo encuentra además un <b>soplo continuo en maquinaria infraclavicular izquierdo con frémito</b>, <b>pulsos saltones</b> y <b>presión de pulso amplia</b>: datos de un <b>conducto arterioso persistente</b> no diagnosticado, cuyo cortocircuito izquierda-derecha sobrecarga el VI y la circulación pulmonar.</p>",
+    hallazgos: {
+      cols: ["Región", "Hallazgo", "Qué significa"],
+      filas: [
+        ["Cuello", "PVY 4 cm, pulso carotídeo amplio", "Congestión; escape diastólico aórtico"],
+        ["Precordio", "Ápex desplazado y difuso", "Dilatación del VI"],
+        ["Precordio", "R3 en ápex", "Sobrecarga de volumen / disfunción sistólica"],
+        ["Precordio", "Soplo continuo infraclavicular + frémito", "CAP"],
+        ["Precordio", "P2 reforzado", "Hipertensión pulmonar"],
+        ["Pulmones", "Crepitantes finos bibasales", "Congestión pulmonar (IC izquierda)"],
+        ["Extremidades", "Frías, llenado 3 s, edema 1+", "Bajo gasto, congestión sistémica leve"],
+      ],
+    },
+    perlas: ["Ausculta <b>siempre</b> la región infraclavicular izquierda: el soplo del CAP puede pasar desapercibido si solo escuchas los 4 focos clásicos.", "Presión de pulso amplia + pulsos saltones → piensa en IAo o CAP.", "Un diagnóstico previo (miocardiopatía) no debe impedirte integrar hallazgos nuevos.", "R3 en un adulto = disfunción ventricular hasta demostrar lo contrario."],
+    tratamiento: "<ul><li>Terapia cuádruple de IC-FEr: <b>ARNI</b> (sacubitrilo/valsartán en lugar de ramipril), <b>betabloqueador</b> (carvedilol, bisoprolol o metoprolol succinato), <b>antagonista mineralocorticoide</b> (espironolactona) e <b>iSGLT2</b> (dapagliflozina/empagliflozina).</li><li><b>Furosemida</b> si hay congestión.</li><li>Valoración para <b>cierre del conducto</b> (percutáneo) por cardiología.</li><li>Restricción de sodio, control diario de peso, ejercicio aeróbico supervisado (rehabilitación cardiaca).</li></ul>",
+  },
+});
